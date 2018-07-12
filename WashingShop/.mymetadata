@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="WashingShop"
+  id="myeclipse.1531375630540"
+  context-root="/WashingShop"
+  j2ee-spec="5.0"
+  archive="WashingShop.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
