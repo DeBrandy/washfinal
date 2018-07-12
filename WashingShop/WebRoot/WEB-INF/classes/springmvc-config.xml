@@ -13,7 +13,7 @@
         
     <context:annotation-config/>
 
-    <context:component-scan base-package="com.mybean.controller">
+    <context:component-scan base-package="bean.controller">
           <context:include-filter type="annotation" 
           expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -21,12 +21,12 @@
     <mvc:annotation-driven />
     
     <mvc:default-servlet-handler />
-
+<!-- 视图解析器 -->
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
             value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/jsp/" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
 </beans>
