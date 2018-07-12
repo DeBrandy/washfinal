@@ -14,7 +14,7 @@ public class FKSF {
 	{
 		InputStream inputStream = null;
 		try {
-			inputStream = Resources.getResourceAsStream("mybatis.xml");
+			inputStream = Resources.getResourceAsStream("applicationContext.xml");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
