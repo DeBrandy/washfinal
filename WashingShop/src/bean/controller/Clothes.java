@@ -1,5 +1,5 @@
 package bean.controller;
 
-public class test {
+public class Clothes {
 
 }
