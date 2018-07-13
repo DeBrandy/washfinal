@@ -33,7 +33,7 @@ public class AdminService {
 		
 	}
 	//取件
-	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取
+	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取(调用)
 	public void selectOrderByOrderid(String Orderid){
 		
 	}
