@@ -1,21 +1,23 @@
 package bean.daoclass;
 
 public class Cloth {
-	private String Cid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add;//订单号,挂衣号,服务类型,服务项目,材质,颜色,品牌,瑕疵,备注要求
+	private String Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add;//订单号,挂衣号,服务类型,服务项目,材质,颜色,品牌,瑕疵,备注要求
 	private double Price,Dprice;  //价格,折后价
 	private int Statue;  //衣物状态
 	//无参构造函数
 	public Cloth(){}
 	//get和set方法
-	public String getCid() {
-		return Cid;
-	}
-	public void setCid(String cid) {
-		Cid = cid;
-	}
 	public String getId() {
 		return Id;
 	}
+	public String getOid() {
+		return Oid;
+	}
+
+	public void setOid(String oid) {
+		Oid = oid;
+	}
+
 	public void setId(String id) {
 		Id = id;
 	}
