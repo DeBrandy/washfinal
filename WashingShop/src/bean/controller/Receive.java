@@ -6,6 +6,7 @@ import org.springframework.http.client.MultipartBodyBuilder.PublisherEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import bean.daoclass.Client;
 import bean.daoclass.Cloth;
@@ -31,6 +32,8 @@ public class Receive {
 	//创建一条衣物信息,并加入clothes集合
 	@RequestMapping(value="#")
 	public String cloth(Model model){
+		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
+		@RequestParam("type") String type;
 		Cloth cloth = new Cloth();
 		clothes.add(cloth);
 		model.addAttribute("cloth", cloth);
