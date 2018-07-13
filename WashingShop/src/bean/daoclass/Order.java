@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Order {
 	private String Oid,Cid;//订单号，手机号
-	private int number;//数量
+	private int Number;//数量
 	private Date Time;//日期
 	private int Statue;
 	public Order(){}
@@ -21,10 +21,10 @@ public class Order {
 		Cid = cid;
 	}
 	public int getNumber() {
-		return number;
+		return Number;
 	}
 	public void setNumber(int number) {
-		this.number = number;
+		this.Number = number;
 	}
 	public Date getTime() {
 		return Time;
