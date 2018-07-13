@@ -3,9 +3,8 @@ package bean.daoclass;
 import java.util.Date;
 
 public class Order {
-	private String Oid,Cid;//订单号，手机号
+	private String Oid,Cid,Time;//订单号，手机号,日期
 	private int Number;//数量
-	private Date Time;//日期
 	private int Statue;
 	public Order(){}
 	public String getOid() {
@@ -26,10 +25,10 @@ public class Order {
 	public void setNumber(int number) {
 		this.Number = number;
 	}
-	public Date getTime() {
+	public String getTime() {
 		return Time;
 	}
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		Time = time;
 	}
 	public int getStatue() {
