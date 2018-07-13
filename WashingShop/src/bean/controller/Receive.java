@@ -26,6 +26,8 @@ public class Receive {
 	private List<Cloth> clothes ;  
 	java.util.Date date = new java.util.Date();
 	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
+	
+	
 	//根据输入的电话号码,获取信息:姓名,余额,等级,未取件单号,总消费,地址
 	//返回到receive.jsp,填写信息
 	@RequestMapping(value="#")
@@ -43,32 +45,33 @@ public class Receive {
 			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add){
 		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
 		
-		Cloth cloth = new Cloth();
-		service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add);
-		clothes.add(cloth);
+		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add);   
+		
+		clothes.add(cloth);         //加入集合,但不写入数据库
 		model.addAttribute("cloth", cloth);
 		return "receive";
 	}
 	//创建订单
 	@RequestMapping(value="/test")
-	public String order(Model model){
-		String Oid  = service.isToday(applicationoid);
-		System.out.println(Oid);
-		
+	public String order(Model model,@RequestParam("Cid") String Cid){
+		applicationoid  = service.isToday(applicationoid);
+		//System.out.println(Oid);
+		Order order = service.buildOrder(Cid,clothes,applicationoid);
 		return "receive";
 	}
 	//打印票据
 	@RequestMapping(value="#")
-	public String sprintOrder(Order order,Model model){
-		service.printOrder(order);
+	public String sprintOrder(Model model){
 		
-		model.addAttribute("order", order);
+		
+		//model.addAttribute("order", order);
 		return "receive";
 	}
 	//取件
 	@RequestMapping(value="#")
-	public String getClothes(@RequestParam("Oid")String Oid){
+	public String getClothes(Model model,@RequestParam("Oid")String Oid){
 		service.selectOrderByOrderid(Oid);
+		model.addAttribute("statue", "OK");
 		return "deliver";
 	}
 

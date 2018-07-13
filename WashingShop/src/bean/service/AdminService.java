@@ -11,6 +11,7 @@ import bean.mapper.*;
 
 public class AdminService {
 	public OrderMapper orderMapper ;
+	public ClothMapper clothMapper;
 	//收件
 	//根据电话号码查询 姓名,余额,等级,未取件单号,总消费,地址
 	public Client selectInfoByNumber(String Cid){
@@ -20,8 +21,18 @@ public class AdminService {
 	
 	//创建衣物,输入服务类型,服务项目,材质,颜色,品牌,瑕疵,附件,价格
 	//添加后显示折后价格和总价,生成挂衣号,并清除文本框中内容,可以继续添加衣物
-	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add){
+	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add,Double Price){
 		Cloth cloth = new Cloth();
+		cloth.setAdd(Add);
+		cloth.setBrand(Brand);
+		cloth.setClo(Clo);
+		cloth.setFlaw(Flaw);
+		//晾衣号还没想好怎么生成
+		cloth.setMat(Mat);
+		cloth.setPrice(Price);         //没写,折后价也没写
+		
+		cloth.setType(Type);
+		
 		return cloth;
 	}
 	//确认是否是今天的第一条单据,并生成单据号
@@ -47,18 +58,32 @@ public class AdminService {
 		return applicationoid;
 	}
 	//结账后创建单据号,把单据号写入集合中的衣物对象,再将衣物对象们、单据对象写入数据库
-	public Order buildOrder(Client client,List<Cloth> clothes,String applicationoid){
-		//根据时间创建单据号
+	public Order buildOrder(String Cid,List<Cloth> clothes,String applicationoid){
+		
 		Order order = new Order();
+		order.setOid(applicationoid);
+		order.setCid(Cid);
+		order.setNumber(clothes.size());
+		order.setStatue(0);
+		long now=System.currentTimeMillis();
+		order.setTime((new SimpleDateFormat("yyyy-mm-dd")).format(now));
+		for (Cloth clothnow : clothes) {    //把衣物写入数据库
+			clothnow.setOid(applicationoid);
+			clothMapper.addCloth(clothnow);
+        }
+		
+		orderMapper.addOrders(order);    //把此订单写入数据库
 		return order;
 	}
 	//打印票据
+	//手机号,单据号,衣服数量,日期
 	public void printOrder(Order order){
 		
 	}
 	//取件
 	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取(调用)
 	public void selectOrderByOrderid(String Orderid){
-		
+		orderMapper.updateOrderStatue(Orderid);      //修改单据状态
+		orderMapper.updateClothStatueByOid(Orderid);   //修改单据中所有衣物状态
 	}
 }
