@@ -26,6 +26,7 @@ public class Receive {
 	private List<Cloth> clothes ;  
 	java.util.Date date = new java.util.Date();
 	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
+	private String Ctype = null;
 	
 	
 	//根据输入的电话号码,获取信息:姓名,余额,等级,未取件单号,总消费,地址
@@ -42,10 +43,11 @@ public class Receive {
 	@RequestMapping(value="#")
 	public String cloth(Model model,@RequestParam("Type") String Type,
 			@RequestParam("Clo")String Clo,@RequestParam("Mat")String Mat,@RequestParam("Color")String Color,
-			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add){
+			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add,
+			@RequestParam("Price")Double Price){
 		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
 		
-		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add);   
+		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price);   
 		
 		clothes.add(cloth);         //加入集合,但不写入数据库
 		model.addAttribute("cloth", cloth);
