@@ -9,14 +9,14 @@ import bean.daoclass.Order;
 public class AdminService {
 	//收件
 	//根据电话号码查询 姓名,余额,等级,未取件单号,总消费,地址
-	public Client selectInfoByNumber(String number){
+	public Client selectInfoByNumber(String Cid){
 		Client client = new Client();
 		return client;
 	}
 	
 	//创建衣物,输入服务类型,服务项目,材质,颜色,品牌,瑕疵,附件,价格
 	//添加后显示折后价格和总价,生成挂衣号,并清除文本框中内容,可以继续添加衣物
-	public Cloth buildCloth(){
+	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add){
 		Cloth cloth = new Cloth();
 		return cloth;
 	}
