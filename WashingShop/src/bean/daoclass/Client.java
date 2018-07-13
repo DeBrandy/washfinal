@@ -2,7 +2,7 @@ package bean.daoclass;
 
 public class Client {
 	private String Cid,Cname,Csex,Cad,Ctype;  //手机号,姓名,性别,地址,会员类型
-	private double Cba,Ccost,Discount;  //卡内余额,总消费
+	private double Cba,Ccost,Discount;  //卡内余额,总消费,折扣
 	//无参构造函数
 	public Client(){}
 	//set和get方法

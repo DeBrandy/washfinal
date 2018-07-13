@@ -21,7 +21,7 @@ public class AdminService {
 	
 	//创建衣物,输入服务类型,服务项目,材质,颜色,品牌,瑕疵,附件,价格
 	//添加后显示折后价格,生成挂衣号,并清除文本框中内容,可以继续添加衣物
-	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add,Double Price){
+	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add,double Price,double Discount){
 		Cloth cloth = new Cloth();
 		cloth.setAdd(Add);
 		cloth.setBrand(Brand);
@@ -29,8 +29,8 @@ public class AdminService {
 		cloth.setFlaw(Flaw);
 		//晾衣号还没想好怎么生成
 		cloth.setMat(Mat);
-		cloth.setPrice(Price);         //折后价也没写
-		
+		cloth.setPrice(Price);         
+		cloth.setDprice(Price*Discount);
 		cloth.setType(Type);
 		
 		return cloth;
