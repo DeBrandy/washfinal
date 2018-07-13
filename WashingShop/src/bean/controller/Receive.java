@@ -17,7 +17,7 @@ import bean.service.AdminService;
 @Controller
 public class Receive {
 	private AdminService service = new AdminService();
-	private List<Cloth> clothes ;
+	private List<Cloth> clothes ;  
 	
 	//根据输入的电话号码,获取信息:姓名,余额,等级,未取件单号,总消费,地址
 	//返回到receive.jsp,填写信息
@@ -26,7 +26,7 @@ public class Receive {
 		Client client;
 		client = service.selectInfoByNumber(Cid);
 		model.addAttribute("client", client);
-	
+	    clothes.clear();    //每次输入电话时,清空衣物集合
 		return "receive";
 	}
 	//创建一条衣物信息,并加入clothes集合
@@ -44,8 +44,8 @@ public class Receive {
 	}
 	//创建订单
 	@RequestMapping(value="#")
-	public String order(Model model,@RequestParam("Type") String Type,){
-		service.buildOrder(client, clothes, date);
+	public String order(Model model){
+		//service.buildOrder(client, clothes, date);
 		return "receive";
 	}
 	//打印票据

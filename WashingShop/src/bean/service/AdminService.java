@@ -20,9 +20,14 @@ public class AdminService {
 		Cloth cloth = new Cloth();
 		return cloth;
 	}
-	
+	//确认是否是今天的第一条单据,使用application,并生成单据号
+	public String isToday(){
+		//获取
+		String Oid = null;
+		return Oid;
+	}
 	//结账后创建单据号,把单据号写入集合中的衣物对象,再将衣物对象们、单据对象写入数据库
-	//确认是否是今天的第一条单据,使用application
+	
 	public Order buildOrder(Client client,List<Cloth> clothes,boolean date){
 		//根据时间创建单据号
 		Order order = new Order();
