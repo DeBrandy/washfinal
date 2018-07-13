@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <xml-body>
 <configuration>
+
+	<properties resource="db.properties"/>
+	
 	<settings>
 		<setting name="logImpl" value="LOG4J"/>
 	</settings>
+	
 	<environments default="mysql">
 		<environment id="mysql">
 			<transactionManager type="JDBC"/>
-			<properties resource="db.properties"/>
 			<dataSource type="POOLED">
 				<property name="driver" value="${driver}"/>
 				<property name="url" value="${url}"/>
@@ -17,7 +23,7 @@
 		</environment>
 	</environments>
 	<mappers>
-		<package name="Mapper"/>  
+		<package name="bean.mapper"/>  
 	</mappers>
 </configuration>
 </xml-body>

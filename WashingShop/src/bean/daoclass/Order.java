@@ -6,6 +6,7 @@ public class Order {
 	private String Oid,Cid;//订单号，手机号
 	private int number;//数量
 	private Date Time;//日期
+	private int Statue;
 	public Order(){}
 	public String getOid() {
 		return Oid;
@@ -30,5 +31,11 @@ public class Order {
 	}
 	public void setTime(Date time) {
 		Time = time;
+	}
+	public int getStatue() {
+		return Statue;
+	}
+	public void setStatue(int statue) {
+		Statue = statue;
 	}
 }
