@@ -25,5 +25,5 @@ public interface OrderMapper {
 	void updateOrderStatue(String Oid);
 	//根据订单状态修改所有衣物状态
 	@Update("update cloth set Statue=1 where Oid=#{Oid}")
-	void updateClothStatue(String Oid);
+	void updateClothStatueByOid(String Oid);
 }

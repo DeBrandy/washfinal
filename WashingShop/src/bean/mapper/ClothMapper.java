@@ -2,6 +2,8 @@ package bean.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import bean.daoclass.Cloth;
 
@@ -9,6 +11,16 @@ public interface ClothMapper {
 	//添加衣物信息
 	@Insert("insert into cloth values(#{Id},#{Cid},#{Type},#{Clo},#{Mat},#{Color},#{Brand},#{Flaw},#{Add},#{Statue},#{Price},#{Dprice})")
 	public void addCloth(Cloth cloth);
-	//
-	public List<Cloth> get(int statue);
+	
+	//根据衣物状态0（已洗未取）返回衣物信息
+	@Select("select * from cloth where Statue = 0")
+	public List<Cloth> returnClothInfoByStatue_0(int statue);
+	
+	//根据衣物状态-1(未洗)返回衣物信息
+	@Select("select * from cloth where Statue = -1")
+	public List<Cloth> returnClothInfoByStatue_1(int statue);
+	
+	//根据挂件号修改衣物状态
+	@Update("update cloth set Statue=0 where Id=#{Id}")
+	void updateClothStatueById(String Id);
 }
