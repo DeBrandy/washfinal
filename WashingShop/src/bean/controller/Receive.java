@@ -35,6 +35,7 @@ public class Receive {
 	public String selectById(@RequestParam("Cid")String Cid,Model model){
 		Client client;
 		client = service.selectInfoByNumber(Cid);
+		
 		model.addAttribute("client", client);
 	    clothes.clear();    //每次输入电话时,清空衣物集合
 		return "receive";
