@@ -80,11 +80,12 @@ public class Receive {
 		model.addAttribute("statue", "OK");
 		return "deliver";
 	}
-	//这是一个测试类
+	//这是一个测试类,试试能不能用浏览器打开,个人认为url是这样的,各位看看有没有错
+	//localhost:8080/WashingShop/test
 	@RequestMapping(value="/test",method=RequestMethod.GET)
 	public String test(){
 		
-		return "deliver";
+		return "receive";
 	}
 
 }
