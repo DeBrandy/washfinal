@@ -77,7 +77,7 @@ public class AdminService {
 		orderMapper.addOrders(order);    //把此订单写入数据库
 		return order;
 	}
-	//打印票据
+	/*//打印票据
 	//手机号,单据号,衣服数量,日期
 	public Order printOrder(String Cid,String applicationoid,int number){
 		Order order = new Order();
@@ -89,7 +89,7 @@ public class AdminService {
 		order.setOid(applicationoid);
 		order.setTime(dateFormat);
 		return order;
-	}
+	}*/
 	//取件
 	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取(调用)
 	public void selectOrderByOrderid(String Orderid){
