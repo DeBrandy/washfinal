@@ -8,7 +8,6 @@ import bean.daoclass.Client;
 import bean.daoclass.Cloth;
 import bean.daoclass.Order;
 import bean.mapper.*;
-
 public class AdminService {
 	public OrderMapper orderMapper ;
 	public ClothMapper clothMapper;
