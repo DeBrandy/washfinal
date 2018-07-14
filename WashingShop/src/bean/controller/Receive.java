@@ -10,6 +10,7 @@ import org.springframework.http.client.MultipartBodyBuilder.PublisherEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -36,7 +37,7 @@ public class Receive {
 		Discount = 1;   //每次输入电话,将折扣设为1
 		Client client;
 		client = service.selectInfoByNumber(Cid);
-		Discount = client.getDiscount();
+		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
 	    clothes.clear();    //每次输入电话时,清空衣物集合
 		return "receive";
@@ -47,29 +48,29 @@ public class Receive {
 	public String cloth(Model model,@RequestParam("Type") String Type,
 			@RequestParam("Clo")String Clo,@RequestParam("Mat")String Mat,@RequestParam("Color")String Color,
 			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add,
-			@RequestParam("Price")double Price){
+			@RequestParam("Price")double Price,@RequestParam("Id")String Id){
 		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
 		
-		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount);   
+		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id);   
 		
 		clothes.add(cloth);         //加入集合,但不写入数据库
 		model.addAttribute("cloth", cloth);
 		return "receive";
 	}
 	//创建订单
-	@RequestMapping(value="/test")
+	@RequestMapping(value="#")
 	public String order(Model model,@RequestParam("Cid") String Cid){
 		applicationoid  = service.isToday(applicationoid);
 		//System.out.println(Oid);
 		Order order = service.buildOrder(Cid,clothes,applicationoid);
 		return "receive";
 	}
-	//打印票据
+	//打印票据  手机号,单据号,衣服数量,日期
 	@RequestMapping(value="#")
-	public String sprintOrder(Model model){
+	public String sprintOrder(Model model,@RequestParam("Cid") String Cid){
+		Order order = service.printOrder(Cid,applicationoid,clothes.size());
 		
-		
-		//model.addAttribute("order", order);
+		model.addAttribute("order", order);
 		return "receive";
 	}
 	//取件
@@ -77,6 +78,12 @@ public class Receive {
 	public String getClothes(Model model,@RequestParam("Oid")String Oid){
 		service.selectOrderByOrderid(Oid);
 		model.addAttribute("statue", "OK");
+		return "deliver";
+	}
+	//这是一个测试类
+	@RequestMapping(value="/test",method=RequestMethod.GET)
+	public String test(){
+		
 		return "deliver";
 	}
 

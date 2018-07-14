@@ -12,27 +12,30 @@ import bean.mapper.*;
 public class AdminService {
 	public OrderMapper orderMapper ;
 	public ClothMapper clothMapper;
+	public ClientMapper clientMapper;
 	//收件
 	//根据电话号码查询 姓名,余额,等级,未取件单号,总消费,地址
 	public Client selectInfoByNumber(String Cid){
 		Client client = new Client();
+		client = clientMapper.selectClientById(Cid);
 		return client;
 	}
 	
-	//创建衣物,输入服务类型,服务项目,材质,颜色,品牌,瑕疵,附件,价格
-	//添加后显示折后价格,生成挂衣号,并清除文本框中内容,可以继续添加衣物
-	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add,double Price,double Discount){
+	//创建衣物,输入服务类型,服务项目,材质,颜色,品牌,瑕疵,附件,价格,挂衣号,折扣不用手动输入,会自动检查
+	//添加后显示折后价格,并清除文本框中内容,可以继续添加衣物
+	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,String Brand,String Flaw,String Add,double Price,
+			double Discount,String Id){
 		Cloth cloth = new Cloth();
 		cloth.setAdd(Add);
 		cloth.setBrand(Brand);
 		cloth.setClo(Clo);
 		cloth.setFlaw(Flaw);
-		//晾衣号还没想好怎么生成
+		cloth.setId(Id);
 		cloth.setMat(Mat);
 		cloth.setPrice(Price);         
 		cloth.setDprice(Price*Discount);
 		cloth.setType(Type);
-		
+	
 		return cloth;
 	}
 	//确认是否是今天的第一条单据,并生成单据号
@@ -77,8 +80,16 @@ public class AdminService {
 	}
 	//打印票据
 	//手机号,单据号,衣服数量,日期
-	public void printOrder(Order order){
-		
+	public Order printOrder(String Cid,String applicationoid,int number){
+		Order order = new Order();
+		java.util.Date date = new java.util.Date();
+		SimpleDateFormat sy1 = new SimpleDateFormat("yyyy-MM-DD");
+		String dateFormat = sy1.format(date);                  //当前时间
+		order.setCid(Cid);
+		order.setNumber(number);
+		order.setOid(applicationoid);
+		order.setTime(dateFormat);
+		return order;
 	}
 	//取件
 	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取(调用)

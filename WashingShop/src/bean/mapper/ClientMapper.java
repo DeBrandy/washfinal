@@ -13,7 +13,7 @@ import bean.daoclass.Client;
 public interface ClientMapper {
 	//用户查询:根据电话号码查询用户所有信息
 	@Select("select * from info where Cid=#{Cid}")
-	Client selectClientById(int Cid);
+	Client selectClientById(String Cid);
 	
 	//查询全部会员信息
 	@Select("select * from info")
