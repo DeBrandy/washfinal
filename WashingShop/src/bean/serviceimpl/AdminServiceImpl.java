@@ -81,6 +81,7 @@ public class AdminServiceImpl implements AdminService{
 		for (Cloth clothnow : clothes) {    //把衣物写入数据库
 			clothnow.setOid(applicationoid);
 			clothMapper.addCloth(clothnow);
+			order.setMoney(clothnow.getDprice()+order.getMoney());
         }
 		
 		orderMapper.addOrders(order);    //把此订单写入数据库
