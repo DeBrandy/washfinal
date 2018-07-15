@@ -15,7 +15,7 @@ public interface OrderMapper {
 	@Select("select Max(Time) from orders")
 	Date returnTopData();
 	//添加订单
-	@Insert("insert into orders values(#{Oid},#{Cid},#{Number},#{Time},#{Statue})")
+	@Insert("insert into orders values(#{Oid},#{Cid},#{Number},#{Time},#{Statue},#{Money})")
 	void addOrders(Order order);
 	//根据订单号查询所有衣物信息
 	@Select("select * from cloth where Oid=#{Oid}")

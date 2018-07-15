@@ -6,7 +6,14 @@ public class Order {
 	private String Oid,Cid,Time;//订单号，手机号,日期
 	private int Number;//数量
 	private int Statue;
+	private double Money;
 	
+	public double getMoney() {
+		return Money;
+	}
+	public void setMoney(double money) {
+		Money = money;
+	}
 	public Order(){}
 	public String getOid() {
 		return Oid;
