@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.client.MultipartBodyBuilder.PublisherEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,10 @@ import bean.service.AdminService;
 
 @Controller
 public class Receive {
-	private AdminService service = new AdminService();
+	@Autowired
+	private AdminService service;
+	
+	
 	private List<Cloth> clothes ;  
 	java.util.Date date = new java.util.Date();
 	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);

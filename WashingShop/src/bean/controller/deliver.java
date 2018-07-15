@@ -1,5 +1,6 @@
 package bean.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -11,8 +12,8 @@ import bean.service.AdminService;
 
 @Controller
 public class deliver {
-	
-	private AdminService service = new AdminService();
+	@Autowired
+	private AdminService service;
 	//取件
 	@RequestMapping(value="#")
 	public String getClothes(Model model,@RequestParam("Oid")String Oid){
