@@ -12,7 +12,6 @@ public class Login {
 	@Autowired
 	private operator ope;
 
-	
 	@RequestMapping("/validLogin")
     public String login(@RequestParam("lname")String lname,@RequestParam("password")String password,Model model)
     {
@@ -25,6 +24,5 @@ public class Login {
 		}
     	return "login";//验证失败，跳转回登录界面
     }
-    
-    
+ 
 } 
