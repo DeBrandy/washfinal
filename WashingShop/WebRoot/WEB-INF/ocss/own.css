@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+#top,#nav,#footer{
+		width:1000px; 
+		margin:0px auto;
+		}
+	#top{
+		height:200px; 
+		background-image:url(../images/top.jpg);
+		}
+	#nav{
+		width:1000px; 
+		border-top-color:#444; 
+		border-top-style:solid; 
+		border-top-width:2px;
+		}
+	#footer{
+		height:100px; 
+		position:relative; 
+		border-style:none; 
+		padding:0px; 
+		background-color:#FFF; 
+		clear:both; 
+		text-align:center; 
+		font-family:"Courier New", Courier, monospace; 
+		color:#000
+		}
+	th{
+		text-align:center;
+	}
