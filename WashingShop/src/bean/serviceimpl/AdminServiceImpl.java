@@ -81,9 +81,7 @@ public class AdminServiceImpl implements AdminService{
 		for (Cloth clothnow : clothes) {    //把衣物写入数据库
 			clothnow.setOid(applicationoid);
 			clothMapper.addCloth(clothnow);
-			order.setMoney(clothnow.getDprice()+order.getMoney());
-        }
-		
+        }		
 		orderMapper.addOrders(order);    //把此订单写入数据库
 		return order;
 	}
@@ -106,4 +104,23 @@ public class AdminServiceImpl implements AdminService{
 		orderMapper.updateOrderStatue(Orderid);      //修改单据状态
 		orderMapper.updateClothStatueByOid(Orderid);   //修改单据中所有衣物状态
 	}
+	
+	//通过挂衣号ID修改衣物状态，当即修改
+	public void findClothByID(String ID)
+	{
+		clothMapper.updateClothStatueById(ID);		
+	}
+	
+	
+	/*
+	public void modifyclothstatus(int Statue)
+	{
+		
+		
+		System.out.print("111");
+		
+		
+	}
+	*/
+	
 }
