@@ -18,7 +18,4 @@ package bean.controller;
 		this.password = password;
 	}
 	
-	
-	
-	
 }

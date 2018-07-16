@@ -25,19 +25,18 @@ import bean.service.AdminService;
 @Controller
 public class Receive {
 	@Autowired
-	private AdminService service;
-	
+	private AdminService service;	
 	
 	private List<Cloth> clothes ;  
 	java.util.Date date = new java.util.Date();
 	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
-	private double Discount = 1;
-	
+	private double Discount = 1;	
 	
 	//根据输入的电话号码,获取信息:姓名,余额,等级,未取件单号,总消费,地址
 	//返回到receive.jsp,填写信息
 	@RequestMapping(value="#")
 	public String selectById(@RequestParam("Cid")String Cid,Model model){
+		
 		Discount = 1;   //每次输入电话,将折扣设为1
 		Client client;
 		client = service.selectInfoByNumber(Cid);
@@ -53,6 +52,7 @@ public class Receive {
 			@RequestParam("Clo")String Clo,@RequestParam("Mat")String Mat,@RequestParam("Color")String Color,
 			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add,
 			@RequestParam("Price")double Price,@RequestParam("Id")String Id){
+		
 		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
 		
 		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id);   
@@ -70,6 +70,7 @@ public class Receive {
 		model.addAttribute("order", order);
 		return "receive";
 	}
+	
 	/*//打印票据  手机号,单据号,衣服数量,日期
 	@RequestMapping(value="#")
 	public String sprintOrder(Model model,@RequestParam("Cid") String Cid){

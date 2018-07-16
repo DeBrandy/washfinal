@@ -10,7 +10,8 @@ import org.apache.ibatis.annotations.Update;
 import bean.daoclass.Cloth;
 import bean.daoclass.Order;
 
-public interface OrderMapper {
+public interface OrderMapper 
+{
 	//返回查询到的最大的订单日期
 	@Select("select Max(Time) from orders")
 	Date returnTopData();

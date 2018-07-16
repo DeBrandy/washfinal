@@ -21,6 +21,8 @@ public class AdminServiceImpl implements AdminService{
 	public OrderMapper orderMapper ;
 	public ClothMapper clothMapper;
 	public ClientMapper clientMapper;
+
+	private List<Cloth> clothes ;  
 	//收件
 	//根据电话号码查询 姓名,余额,等级,未取件单号,总消费,地址
 	public Client selectInfoByNumber(String Cid){
@@ -105,22 +107,25 @@ public class AdminServiceImpl implements AdminService{
 		orderMapper.updateClothStatueByOid(Orderid);   //修改单据中所有衣物状态
 	}
 	
-	//通过挂衣号ID修改衣物状态，当即修改
-	public void findClothByID(String ID)
+	//通过输入挂衣号ID修改衣物状态，当即修改
+	public void MoodifyClothStatueByID(String ID)
 	{
 		clothMapper.updateClothStatueById(ID);		
 	}
 	
-	
-	/*
-	public void modifyclothstatus(int Statue)
+	//通过选择要查询的衣物的状态，显示当前状态的所有衣物
+	public List<Cloth> ShowclothBystatus(int Statue)
 	{
-		
-		
-		System.out.print("111");
-		
-		
+		if( Statue == 0)
+		{
+			clothes =clothMapper.returnClothInfoByStatue_0();		
+		}    
+		if(Statue == -1)
+		{
+			clothes =clothMapper.returnClothInfoByStatue_1();			
+		}		
+		return clothes ;			
 	}
-	*/
 	
+
 }
