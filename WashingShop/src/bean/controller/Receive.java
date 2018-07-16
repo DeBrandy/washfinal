@@ -59,7 +59,7 @@ public class Receive {
 		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id);   
 		
 		clothes.add(cloth);         //加入集合,但不写入数据库
-		model.addAttribute("cloth", cloth);
+		model.addAttribute("clothes", clothes);
 		return "receive";
 	}
 	

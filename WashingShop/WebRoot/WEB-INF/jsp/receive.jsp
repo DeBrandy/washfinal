@@ -157,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<form action="/receiveaccount" method="post" id="from3">
 	 <table border="2" class="table table-hover center-block" id="PTable" style="width:900px;text-align:center">
         		<tr><td style="width:300px">挂衣号</td><td style="width:300px">价格</td><td style="width:300px">折后价</td></tr>
-        		<c:forEach items="${one}" var="b">
+        		<c:forEach items="${clothes}" var="b">
        			<tr>
         		<td>${b.Id} </td>
         		<td>${b.Price}</td>
