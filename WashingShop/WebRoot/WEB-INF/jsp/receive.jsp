@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,bean.daoclass.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,54 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.js"></script>
   	<script type="text/javascript" src="./own.js"></script>
-  	<script type="text/javascript">
-	  	function initTable() { 
-		  //先销毁表格 
-		  $('#PTable').bootstrapTable('destroy'); 
-		  //初始化表格,动态从服务器加载数据 
-		  $("#PTable").bootstrapTable({ 
-		   method: "get", //使用get请求到服务器获取数据 
-		   url: "<c:url value='/SellServlet?act=ajaxGetSellRecord'/>", //获取数据的Servlet地址 
-		   striped: true, //表格显示条纹 
-		   pagination: true, //启动分页 
-		   pageSize: 5, //每页显示的记录数 
-		   pageNumber:1, //当前第几页 
-		   pageList: [5, 10, 15, 20, 25], //记录数可选列表 
-		   search: false, //是否启用查询 
-		   showColumns: false, //显示下拉框勾选要显示的列 
-		   showRefresh: false, //显示刷新按钮 
-		   showToggle: false,
-		   sidePagination: "server", //表示服务端请求 
-		   //设置为undefined可以获取pageNumber，pageSize，searchText，sortName，sortOrder 
-		   //设置为limit可以获取limit, offset, search, sort, order 
-		   queryParamsType : "undefined", 
-		   queryParams: function queryParams(params) { //设置查询参数 
-		    var param = { 
-		     pageNumber: params.pageNumber, 
-		     pageSize: params.pageSize
-		    }; 
-		    return param;     
-		   }, 
-		   onLoadSuccess: function(){ //加载成功时执行 
-		    layer.msg("加载成功"); 
-		   }, 
-		   onLoadError: function(){ //加载失败时执行 
-		    layer.msg("加载数据失败", {time : 1500, icon : 2}); 
-		   } 
-		   }); 
-		  } 
-		  $(document).ready(function () {   
-		   //调用函数，初始化表格 
-		   initTable(); 
-		   //当点击添加按钮的时候执行 
-		   $("#addtion").bind("click", initTable); 
-		  }); 
-		  $table.bootstrapTable(	  
-		  formatLoadingMessage: function(){
-		    return "请稍等，正在加载中。。。";
-		  }
-			);
-  	</script>
     <div id="top"></div>
 	<div id="nav">
 	<div class="btn-group">
@@ -203,21 +155,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<form action="/receiveaccount" method="post" id="from3">
-	 <table class="table table-hover center-block" id="PTable" style="width:900px"
-	  data-pagination="true"
-	  data-show-refresh="true"
-	  data-show-toggle="true"
-	  data-showColumns="true"> 
-	  <thead> 
-	   <tr>               
-	    <th data-field="Id" data-sortable="true" style="width:300px">挂衣号</th> <!-- 该怎么加入一行数据? -->
-	    <th data-field="Price" style="width:300px">价格</th>
-	    <th data-field="Dprice" style="width:300px">折后价</th>  
-	   </tr> 
-	  </thead> 
-	  <tbody> 
-	  </tbody> 
-	</table>
+	 <table border="2" class="table table-hover center-block" id="PTable" style="width:900px;text-align:center">
+        		<tr><td style="width:300px">挂衣号</td><td style="width:300px">价格</td><td style="width:300px">折后价</td></tr>
+        		<c:forEach items="${one}" var="b">
+       			<tr>
+        		<td>${b.Id} </td>
+        		<td>${b.Price}</td>
+       		    <td>${b.DPrice}</td>
+      			</tr>
+     		 	</c:forEach>
+           
+       </table>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<table class="center-block">
 	<tr>
