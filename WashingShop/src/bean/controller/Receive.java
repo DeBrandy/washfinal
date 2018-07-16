@@ -2,6 +2,7 @@ package bean.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,9 +26,14 @@ import bean.service.AdminService;
 @Controller
 public class Receive {
 	@Autowired
+<<<<<<< HEAD
 	private AdminService service;	
 	
 	private List<Cloth> clothes ;  
+=======
+	private AdminService service;
+	private List<Cloth> clothes = new ArrayList<Cloth>();  
+>>>>>>> 64da547e7263bf09e4af0c611801a95785458c25
 	java.util.Date date = new java.util.Date();
 	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
 	private double Discount = 1;	
@@ -61,7 +67,7 @@ public class Receive {
 		model.addAttribute("cloth", cloth);
 		return "receive";
 	}
-	//创建订单   打印票据  手机号,单据号,衣服数量,日期
+	//创建订单,更新等级   打印票据  手机号,单据号,衣服数量,日期,总价
 	@RequestMapping(value="#")
 	public String order(Model model,@RequestParam("Cid") String Cid){
 		applicationoid  = service.isToday(applicationoid);
@@ -79,6 +85,7 @@ public class Receive {
 		model.addAttribute("order", order);
 		return "receive";
 	}*/
+	
 	
 	//这是一个测试类,试试能不能用浏览器打开,个人认为url是这样的,各位看看有没有错
 	//localhost:8080/WashingShop/test

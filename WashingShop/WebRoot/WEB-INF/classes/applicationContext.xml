@@ -16,7 +16,7 @@
 	
     <context:annotation-config />
     
-	<context:component-scan base-package="com.mybean.service" />
+	<context:component-scan base-package="bean.mapper" />
 	<context:property-override location="classpath:db.properties"/>
 	<bean id="dateSource" class="com.mchange.v2.c3p0.ComboPooledDateSource"/>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" />

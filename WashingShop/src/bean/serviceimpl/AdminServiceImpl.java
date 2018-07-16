@@ -81,25 +81,37 @@ public class AdminServiceImpl implements AdminService{
 		long now=System.currentTimeMillis();
 		order.setTime((new SimpleDateFormat("yyyy-mm-dd")).format(now));
 		for (Cloth clothnow : clothes) {    //把衣物写入数据库
-			clothnow.setOid(applicationoid);
-			clothMapper.addCloth(clothnow);
+			clothnow.setOid(applicationoid);   //给每件衣服添加单据号
+			clothMapper.addCloth(clothnow);            //写入数据库
+			order.setMoney(clothnow.getDprice()+order.getMoney());    //订单总价
         }		
 		orderMapper.addOrders(order);    //把此订单写入数据库
+		
+		//更新等级
+		Client client = new Client();
+		client = clientMapper.selectClientById(Cid);  
+		client.setCba(client.getCba()-order.getMoney());   //扣费
+		client.setCcost(client.getCcost()+order.getMoney());   //累计消费
+		String type = client.getCtype();     //获取当前等级
+		double cost = client.getCcost();    //获取累计消费
+		if(cost>=3000){
+			type = "超级";     //累计消费超过3000,更新为 超级
+		}
+		else if(cost>=2000 && cost<3000){
+			if(!type.equals("超级")){
+				type = "黄金";        //累计消费超过2000不到3000,且目前不是超级会员,更新为黄金
+			} 
+		}
+		else if(cost>=800 && cost<2000){
+			if(type.equals("普通")){
+				type = "白银";             //普通会员消费超过800,更新为白银会员
+			}
+		}
+		client.setCtype(type);
+		
 		return order;
 	}
-	/*//打印票据
-	//手机号,单据号,衣服数量,日期
-	public Order printOrder(String Cid,String applicationoid,int number){
-		Order order = new Order();
-		java.util.Date date = new java.util.Date();
-		SimpleDateFormat sy1 = new SimpleDateFormat("yyyy-MM-DD");
-		String dateFormat = sy1.format(date);                  //当前时间
-		order.setCid(Cid);
-		order.setNumber(number);
-		order.setOid(applicationoid);
-		order.setTime(dateFormat);
-		return order;
-	}*/
+	
 	//取件
 	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取(调用)
 	public void selectOrderByOrderid(String Orderid){
