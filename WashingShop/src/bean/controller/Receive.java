@@ -60,7 +60,7 @@ public class Receive {
 		model.addAttribute("cloth", cloth);
 		return "receive";
 	}
-	//创建订单   打印票据  手机号,单据号,衣服数量,日期,总价
+	//创建订单,更新等级   打印票据  手机号,单据号,衣服数量,日期,总价
 	@RequestMapping(value="#")
 	public String order(Model model,@RequestParam("Cid") String Cid){
 		applicationoid  = service.isToday(applicationoid);
@@ -77,6 +77,7 @@ public class Receive {
 		model.addAttribute("order", order);
 		return "receive";
 	}*/
+	
 	
 	//这是一个测试类,试试能不能用浏览器打开,个人认为url是这样的,各位看看有没有错
 	//localhost:8080/WashingShop/test
