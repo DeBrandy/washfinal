@@ -2,6 +2,7 @@ package bean.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +27,7 @@ import bean.service.AdminService;
 public class Receive {
 	@Autowired
 	private AdminService service;
-	
-	
-	private List<Cloth> clothes ;  
+	private List<Cloth> clothes = new ArrayList<Cloth>();  
 	java.util.Date date = new java.util.Date();
 	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
 	private double Discount = 1;
@@ -61,7 +60,7 @@ public class Receive {
 		model.addAttribute("cloth", cloth);
 		return "receive";
 	}
-	//创建订单   打印票据  手机号,单据号,衣服数量,日期
+	//创建订单   打印票据  手机号,单据号,衣服数量,日期,总价
 	@RequestMapping(value="#")
 	public String order(Model model,@RequestParam("Cid") String Cid){
 		applicationoid  = service.isToday(applicationoid);
