@@ -46,6 +46,7 @@ public class Receive {
 	    clothes.clear();    //每次输入电话时,清空衣物集合
 		return "receive";
 	}
+	
 	//创建一条衣物信息,并加入clothes集合
 	//清空文本框内容(在jsp中实现)
 	@RequestMapping(value="/receiveinfo")
@@ -61,6 +62,7 @@ public class Receive {
 		model.addAttribute("cloth", cloth);
 		return "receive";
 	}
+	
 	//创建订单   打印票据  手机号,单据号,衣服数量,日期
 	@RequestMapping(value="/receiveaccount")
 	public String order(Model model,@RequestParam("Cid") String Cid){

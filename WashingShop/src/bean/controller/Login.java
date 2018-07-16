@@ -1,4 +1,5 @@
 package bean.controller;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -24,5 +25,12 @@ public class Login {
 		}
     	return "login";//验证失败，跳转回登录界面
     }
- 
+    /*
+	@Test
+	public void Demo()
+	{
+		System.out.print(ope.getLname());
+		System.out.print(ope.getPassword());		
+	}*/
 } 
+
