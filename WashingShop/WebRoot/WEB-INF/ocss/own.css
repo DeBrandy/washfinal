@@ -1,4 +1,10 @@
 @CHARSET "UTF-8";
+#login{  
+	margin-left:auto;  
+	margin-right:auto; 
+	margin-TOP:100px; 
+	width:20em;  
+	}
 #top,#nav,#footer{
 		width:1000px; 
 		margin:0px auto;
@@ -13,6 +19,13 @@
 		border-top-style:solid; 
 		border-top-width:2px;
 		}
+	#home{
+		width:1000px;
+		height:300px;
+		}
+	#block{
+		height:110px;
+		}
 	#footer{
 		height:100px; 
 		position:relative; 
@@ -24,6 +37,4 @@
 		font-family:"Courier New", Courier, monospace; 
 		color:#000
 		}
-	th{
-		text-align:center;
-	}
+	
