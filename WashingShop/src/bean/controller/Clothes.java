@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bean.daoclass.Cloth;
@@ -26,6 +27,7 @@ public class Clothes {
 		//int num,i;
 		clothes= service.ShowclothBystatus(Statue );
 		//num = clothes.size();
+		
 		//把最后得到的list对象传到jsp页面，jsp页面再用<c:forEach> </c:forEach>输出即可
 		model.addAttribute(clothes);
 		
@@ -57,6 +59,12 @@ public class Clothes {
 	public String manageCloth(Model model,@RequestParam("Id")String Id)
 	{
 		service.MoodifyClothStatueByID(Id);		
+		return "clothes";
+	}
+	
+	@RequestMapping(value="/test",method=RequestMethod.GET)
+	public String text(){
+		
 		return "clothes";
 	}
 	
