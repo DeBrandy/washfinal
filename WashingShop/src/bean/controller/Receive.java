@@ -36,7 +36,7 @@ public class Receive {
 	
 	//根据输入的电话号码,获取信息:姓名,余额,等级,未取件单号,总消费,地址
 	//返回到receive.jsp,填写信息
-	@RequestMapping(value="#")
+	@RequestMapping(value="/receiveselect")
 	public String selectById(@RequestParam("Cid")String Cid,Model model){
 		Discount = 1;   //每次输入电话,将折扣设为1
 		Client client;
@@ -48,7 +48,7 @@ public class Receive {
 	}
 	//创建一条衣物信息,并加入clothes集合
 	//清空文本框内容(在jsp中实现)
-	@RequestMapping(value="#")
+	@RequestMapping(value="/receiveinfo")
 	public String cloth(Model model,@RequestParam("Type") String Type,
 			@RequestParam("Clo")String Clo,@RequestParam("Mat")String Mat,@RequestParam("Color")String Color,
 			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add,
@@ -62,7 +62,7 @@ public class Receive {
 		return "receive";
 	}
 	//创建订单   打印票据  手机号,单据号,衣服数量,日期
-	@RequestMapping(value="#")
+	@RequestMapping(value="/receiveaccount")
 	public String order(Model model,@RequestParam("Cid") String Cid){
 		applicationoid  = service.isToday(applicationoid);
 		//System.out.println(Oid);

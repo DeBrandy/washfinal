@@ -90,34 +90,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
 	</div>
 	<div id="nav">
-	<form role="form" class="form-horizontal"  action="" method="get" id="from1">
+	<form role="form" class="form-horizontal"  action="/receiveselect" method="post" id="from1">
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<table class="center-block">
 	<tr>
 	<td><label for="Cid" class="control-label">查询用户：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid" name="Cid"></td>
 	<td><button id="search" type="submit" class="btn btn-primary">确  定</button></td>
 	</tr>
 	<tr>
 	<td style="width:100px"><label for="Cname" class="control-label">姓名：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly value="$(requestScope.client.Cname)"></td>
 	<td style="width:100px"><label for="Cba" class="control-label">卡内余额：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cba" readonly></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cba" readonly value="$(requestScope.client.Cba)"></td>
 	<td style="width:100px"><label for="Ctype" class="control-label">会员等级：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" readonly></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" readonly vlaue="$(requestScope.client.Ctype)"></td>
 	</tr>
 	<tr>
-	<td><label for="Oid" class="control-label">未取件单号：</label></td>
-	<td><input type="text" class="form-horizontal" id="Oid" readonly></td>
+	
 	<td><label for="Ccost" class="control-label">总消费：</label></td>
-	<td><input type="text" class="form-horizontal" id="Ccost" readonly></td>
+	<td><input type="text" class="form-horizontal" id="Ccost" readonly value="$(requestScope.client.Ccost)" ></td>
 	<td><label for="Cad" class="control-label">地址：</label></td>
-	<td><input type="text" class="form-horizontal" id="Cad" readonly></td>
+	<td><input type="text" class="form-horizontal" id="Cad" readonly value="$(requestScope.client.Cad)"></td>
 	</tr>
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
-	<form action="" method="get" id="from2">
+	<form action="/receiveinfo" method="post" id="from2">
 	<table class="center-block">
 	<tr>
 	<td><h3><label>收件信息</label></h3></td>
@@ -126,21 +125,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<td style="width:100px"><label for="Type" class="control-label">服务类型：</label></td>
 	<td style="width:200px">
 		<div class="input-group" id="type">
-            <input type="text" class="form-horizontal" onfocus="onTypeFocus()" onkeydown="onTypeKey()" onchange="onTypeChange()" list="typeInput" class="form-control sel_input">
-            <datalist id="typeInput"></datalist>
+            <input type="text" class="form-horizontal" onfocus="onTypeFocus()" onkeydown="onTypeKey()" onchange="onTypeChange()" list="typeInput" 
+            class="form-control sel_input" name="Type">
+            <datalist id="typeInput">
         </div><!-- /input-group -->
 	</td>
 	<td style="width:100px"><label for="Clo" class="control-label">服务项目：</label></td>
 	<td style="width:200px">
 		<div class="input-group" id="clo">
-            <input type="text" class="form-horizontal" onfocus="onCloFocus()" onkeydown="onCloKey()" onchange="onCloChange()" list="cloInput" class="form-control sel_input">
+            <input type="text" class="form-horizontal" onfocus="onCloFocus()" onkeydown="onCloKey()" onchange="onCloChange()" list="cloInput" 
+            class="form-control sel_input" name="Clo">
             <datalist id="cloInput"></datalist>
         </div><!-- /input-group -->
 	</td>
 	<td style="width:100px"><label for="Mat" class="control-label">材质：</label></td>
 	<td style="width:200px">
 		<div class="input-group" id="mat">
-			<input type="text" class="form-horizontal" onfocus="onMatFocus()" onkeydown="onMatKey()" onchange="onMatChange()" list="matInput" class="form-control sel_input">
+			<input type="text" class="form-horizontal" onfocus="onMatFocus()" onkeydown="onMatKey()" onchange="onMatChange()" list="matInput" 
+			class="form-control sel_input" name="Mat">
             <datalist id="matInput"></datalist>
         </div><!-- /input-group -->
 	</td>
@@ -149,21 +151,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<td><label for="Color" class="control-label">颜色：</label></td>
 	<td>
 		<div class="input-group" id="color">
-            <input type="text" class="form-horizontal" onfocus="onColorFocus()" onkeydown="onColorKey()" onchange="onColorChange()" list="colorInput" class="form-control sel_input">
+            <input type="text" class="form-horizontal" onfocus="onColorFocus()" onkeydown="onColorKey()" onchange="onColorChange()" list="colorInput" 
+            class="form-control sel_input" name="Color">
             <datalist id="colorInput"></datalist>
         </div><!-- /input-group -->
 	</td>
 	<td><label for="Brand" class="control-label">品牌：</label></td>
 	<td>
 		<div class="input-group" id="brand">
-            <input type="text" class="form-horizontal" onfocus="onBrandFocus()" onkeydown="onBrandKey()" onchange="onBrandChange()" list="brandInput" class="form-control sel_input">
+            <input type="text" class="form-horizontal" onfocus="onBrandFocus()" onkeydown="onBrandKey()" onchange="onBrandChange()" list="brandInput" 
+            class="form-control sel_input" name="Brand">
             <datalist id="brandInput"></datalist>
         </div><!-- /input-group -->
 	</td>
 	<td><label for="Flaw" class="control-label">瑕疵：</label></td>
 	<td>
 		<div class="input-group" id="flaw">
-            <input type="text" class="form-horizontal" onfocus="onFlawFocus()" onkeydown="onFlawKey()" onchange="onFlawChange()" list="flawInput" class="form-control sel_input">
+            <input type="text" class="form-horizontal" onfocus="onFlawFocus()" onkeydown="onFlawKey()" onchange="onFlawChange()" list="flawInput" 
+            class="form-control sel_input" name="Flaw">
             <datalist id="flawInput"></datalist>
         </div><!-- /input-group -->
 	</td>
@@ -172,20 +177,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<td><label for="Add" class="control-label">附件：</label></td>
 	<td>
 		<div class="input-group" id="add">
-            <input type="text" class="form-horizontal" onfocus="onAddFocus()" onkeydown="onAddKey()" onchange="onAddChange()" list="addInput" class="form-control sel_input">
+            <input type="text" class="form-horizontal" onfocus="onAddFocus()" onkeydown="onAddKey()" onchange="onAddChange()" list="addInput" 
+            class="form-control sel_input" name="Add">
             <datalist id="addInput"></datalist>
         </div><!-- /input-group -->
 	</td>
 	<td><label for="Price" class="control-label">价格：</label></td>
 	<td>
 		<div class="input-group">
-            <input type="text" class="form-horizontal" id="Price">
+            <input type="text" class="form-horizontal" id="Price" name="Price">
         </div><!-- /input-group -->
 	</td>
 	<td><label for="Id" class="control-label">挂衣号：</label></td>
 	<td>
 		<div class="input-group">
-            <input type="text" class="form-horizontal" id="Id">
+            <input type="text" class="form-horizontal" id="Id" name="Id">
         </div><!-- /input-group -->
 	</td>
 	<tr>
@@ -196,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
-	<form action="" method="get" id="from3">
+	<form action="/receiveaccount" method="post" id="from3">
 	 <table class="table table-hover center-block" id="PTable" style="width:900px"
 	  data-pagination="true"
 	  data-show-refresh="true"
@@ -204,7 +210,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  data-showColumns="true"> 
 	  <thead> 
 	   <tr>               
-	    <th data-field="Id" data-sortable="true" style="width:300px">挂衣号</th> 
+	    <th data-field="Id" data-sortable="true" style="width:300px">挂衣号</th> <!-- 该怎么加入一行数据? -->
 	    <th data-field="Price" style="width:300px">价格</th>
 	    <th data-field="Dprice" style="width:300px">折后价</th>  
 	   </tr> 
@@ -220,11 +226,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="collapse" id="print">
        <table>
        <tr><td></td><td><h3>收  据</h3></td></tr>
-       <tr><td>手机号：</td><td><input type="text" class="form-horizontal" id="Cid" readonly></td></tr>
-       <tr><td>单据号：</td><td><input type="text" class="form-horizontal" id="Oid" readonly></td></tr>
-       <tr><td>衣服数量：</td><td><input type="text" class="form-horizontal" id="Number" readonly></td></tr>
-       <tr><td>日期：</td><td><input type="text" class="form-horizontal" id="Time" readonly></td></tr>
-       <tr><td>总价：</td><td><input type="text" class="form-horizontal" id="Ccost" readonly></td></tr>
+       <tr><td>手机号：</td><td><input type="text" class="form-horizontal" id="Cid" readonly vlaue="$(requestScope.client.Cid)"></td></tr>
+       <tr><td>单据号：</td><td><input type="text" class="form-horizontal" id="Oid" readonly vlaue="$(requestScope.client.Oid"></td></tr>
+       <tr><td>衣服数量：</td><td><input type="text" class="form-horizontal" id="Number" readonly vlaue="$(requestScope.client.Number)"></td></tr>
+       <tr><td>日期：</td><td><input type="text" class="form-horizontal" id="Time" readonly vlaue="$(requestScope.client.Time)"></td></tr>
+       <tr><td>总价：</td><td><input type="text" class="form-horizontal" id="Ccost" readonly vlaue="$(requestScope.client.Money)"></td></tr>
        </table>       
   	</div>
 	</td>
