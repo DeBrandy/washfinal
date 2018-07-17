@@ -9,14 +9,14 @@ import bean.service.MemberService;
 
 public class Client {
 	@Autowired
-	public MemberService member;
+	public MemberService client;
 	//查找所有用户
 	@RequestMapping(value="#")//表格的aciton是value的值
 	public String findAll(Model model)
 	{
 		
 		
-		model.addAttribute("one",member.findAll());
+		model.addAttribute("one",client.findAll());
 		return "member";
 		
 	}
@@ -26,7 +26,7 @@ public class Client {
 	public String findOne(@RequestParam("Cid")String Cid,Model model)
 	{
 		
-		model.addAttribute("two",member.findOne(Cid));
+		model.addAttribute("two",client.findOne(Cid));
 		return "member";
 		
 	}
@@ -36,7 +36,7 @@ public class Client {
 	public String update(@RequestParam("Cid_1")String Cid_1,@RequestParam("Cid_2")String Cid_2,
 			@RequestParam("Cname")String Cname,	@RequestParam("Csex")String Csex,@RequestParam("Cad")String Cad)
 	{
-		member.update(Cid_1, Cid_2, Cname, Csex, Cad);
+		client.update(Cid_1, Cid_2, Cname, Csex, Cad);
 		return "member";
 		
 	}
@@ -46,7 +46,7 @@ public class Client {
 	public String insert(@RequestParam("Cid")String Cid,@RequestParam("Cname")String Cname,	@RequestParam("Csex")String Csex,@RequestParam("Cad")String Cad,@RequestParam("amount")double amount)
 	{
 		
-		member.insert(Cid, Cname, Csex, Cad, amount);
+		client.insert(Cid, Cname, Csex, Cad, amount);
 		return "member";
 	}
 	
@@ -55,7 +55,7 @@ public class Client {
 	public String delete(@RequestParam("Cid")String Cid)
 	{
 		
-		member.delete(Cid);
+		client.delete(Cid);
 		return "member";
 	}	
 	//充值
@@ -63,7 +63,7 @@ public class Client {
 	public String invest(@RequestParam("Cid")String Cid,@RequestParam("amount")double amount)
 	{
 		
-		member.invest(Cid, amount);
+		client.invest(Cid, amount);
 		return "member";
 	}	
 	//按照卡号排序
@@ -71,7 +71,7 @@ public class Client {
 	public String sortByCid(Model model)
 	{
 		
-		model.addAttribute("three",member.sortByCid());
+		model.addAttribute("three",client.sortByCid());
 		return "member";
 	}
 	//按照余额排序
@@ -79,7 +79,7 @@ public class Client {
 	public String sortByCba(Model model)
 	{
 		
-		model.addAttribute("four",member.sortByCba());
+		model.addAttribute("four",client.sortByCba());
 		return "member";
 	}	
 	//按照总消费排序
@@ -87,7 +87,7 @@ public class Client {
 	public String sortByCcost(Model model)
 	{
 		
-		model.addAttribute("five",member.sortByCcost());
+		model.addAttribute("five",client.sortByCcost());
 		return "member";
 	}	
 	

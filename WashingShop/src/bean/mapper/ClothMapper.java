@@ -27,6 +27,6 @@ public interface ClothMapper {
 	
 	//返回衣物信息
 	@Select("select * from cloth ")
-	public List<Cloth> returnClothInfo();
+	public List<Cloth> returnClothInfo();	
 	
 }
