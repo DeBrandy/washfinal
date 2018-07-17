@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
 	</div>
 	<div id="nav">
-	<form role="form" class="form-horizontal"  action="/receiveselect" method="post" id="from1">
+	<form role="form" class="form-horizontal"  action="/receive/select" method="post" id="from1">
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<table class="center-block">
 	<tr>
@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
-	<form action="/receiveinfo" method="post" id="from2">
+	<form action="/receive/info" method="post" id="from2">
 	<table class="center-block">
 	<tr>
 	<td><h3><label>收件信息</label></h3></td>
@@ -154,10 +154,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
-	<form action="/receiveaccount" method="post" id="from3">
+	<form action="/receive/account" method="post" id="from3">
 	 <table border="2" class="table table-hover center-block" id="PTable" style="width:900px;text-align:center">
         		<tr><td style="width:300px">挂衣号</td><td style="width:300px">价格</td><td style="width:300px">折后价</td></tr>
-        		<c:forEach items="${clothes}" var="b">
+        		<c:forEach items="${requestScope.clothes}" var="b">
        			<tr>
         		<td>${b.Id} </td>
         		<td>${b.Price}</td>

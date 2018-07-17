@@ -18,7 +18,7 @@
 	
     <!--<context:annotation-config />
     --><mybatis:scan base-package="bean.mapper"/>
-	<context:component-scan base-package="bean.service" />
+	<context:component-scan base-package="bean.serviceimpl" />
 	<context:property-override location="classpath:db.properties"/>
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 	
