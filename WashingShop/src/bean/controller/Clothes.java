@@ -20,6 +20,15 @@ public class Clothes {
 	@Autowired
 	private AdminService service;
     
+	//在页面上显示所有衣物信息，便于管理
+	@RequestMapping(value="/Show")
+	public String ShowAll(Model model,List<Cloth> clothes)
+	{
+		clothes= service.showAllcloth();		
+	    model.addAttribute(clothes);
+		return "clothes";
+	}
+	
 	//show衣物：操作员通过查询衣物的状态（0：已经洗好 /1：未洗好），将衣物信息显示出来。
 	@RequestMapping(value="/show")
 	public String showClothes(Model model,@RequestParam("Statue")int Statue,List<Cloth> clothes)
@@ -61,7 +70,7 @@ public class Clothes {
 		service.MoodifyClothStatueByID(Id);		
 		return "clothes";
 	}
-	
+
 	@RequestMapping(value="/test",method=RequestMethod.GET)
 	public String text(){
 		
