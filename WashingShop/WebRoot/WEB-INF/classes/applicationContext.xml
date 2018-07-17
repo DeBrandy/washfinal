@@ -16,11 +16,23 @@
 	 http://mybatis.org/schema/mybatis-spring
 	 http://mybatis.org/schema/mybatis-spring.xsd">
 	
-    <!--<context:annotation-config />
-    --><mybatis:scan base-package="bean.mapper"/>
+    <!--<context:annotation-config />-->
+    <mybatis:scan base-package="bean.mapper"/>
+
+    <!--  
+     <bean name="ope" class="cn.itcast.a_hello.operator" >         
+               <property name="Lname" value="不听话"></property>
+               <property name="password" value="Hss1999"></property>                
+       </bean>  
+     -->  
+     
+	<context:component-scan base-package="bean.service" />
+	<context:property-override location="classpath:db.properties"/>
+
 	<context:component-scan base-package="bean.serviceimpl" />
 	<!--<context:component-scan base-package="bean.controller" />
 	--><context:property-override location="classpath:db.properties"/>
+
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"/>
