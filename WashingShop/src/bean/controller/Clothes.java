@@ -38,8 +38,7 @@ public class Clothes {
 		//num = clothes.size();
 		
 		//把最后得到的list对象传到jsp页面，jsp页面再用<c:forEach> </c:forEach>输出即可
-		model.addAttribute(clothes);
-		
+		model.addAttribute(clothes);		
 		/*
 		 * private String Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add;//订单号,挂衣号,服务类型,服务项目,材质,颜色,品牌,瑕疵,备注要求
 		   private double Price,Dprice;  //价格,折后价

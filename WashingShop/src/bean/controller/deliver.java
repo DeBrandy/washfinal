@@ -15,6 +15,7 @@ import bean.service.AdminService;
 @Controller
 @RequestMapping(value="/deliver")
 public class deliver {
+	
 	@Autowired
 	private AdminService service;
 	//取件
