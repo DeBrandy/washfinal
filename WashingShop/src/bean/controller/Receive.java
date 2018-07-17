@@ -77,7 +77,7 @@ public class Receive {
 	
 	//这是一个测试类,试试能不能用浏览器打开,个人认为url是这样的,各位看看有没有错
 	//localhost:8080/WashingShop/test
-	@RequestMapping(value="/test",method=RequestMethod.GET)
+	@RequestMapping(value="/test")
 	public String test(){
 		
 		return "receive";

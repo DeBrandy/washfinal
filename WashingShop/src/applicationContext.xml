@@ -19,8 +19,8 @@
     <!--<context:annotation-config />
     --><mybatis:scan base-package="bean.mapper"/>
 	<context:component-scan base-package="bean.serviceimpl" />
-	<context:component-scan base-package="bean.controller" />
-	<context:property-override location="classpath:db.properties"/>
+	<!--<context:component-scan base-package="bean.controller" />
+	--><context:property-override location="classpath:db.properties"/>
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"/>
