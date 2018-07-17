@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>发件界面</title>
+    <title>付件界面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -32,6 +32,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.js"></script>
   	<script type="text/javascript" src="./own.js"></script>
+  	<script type="text/javascript">
+  	function getreturn(){
+  		var statue = ${order.Statue};
+  		if(statue == 0){
+  			alert(" 取件成功！");
+  		}
+	    else if(statue == 1){
+	    	alert(" 还未洗完！");
+	    }
+	};
+  	</script>
     <div id="top"></div>
 	<div id="nav">
 	<div class="btn-group">
@@ -42,7 +53,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
 	</div>
 	<div id="nav">
-	<!-- 在此编辑页面内容 -->
+	<div id="home">
+	<div id="block"></div>
+	<form role="form" class="form-horizontal"  action="" method="get" id="dfrom">
+	<table class="center-block">
+	<tr>
+	<td><label for="Oid" class="control-label">请输入单据号：</label></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Oid"></td>
+	<td><button type="submit" class="btn btn-primary" onclick="getreturn()">确定</button></td>
+	</tr>
+	</table>
+	</form>
+	</div>
 	</div>
 	<div id="footer">
 	<hr color="#000" size="4px" align="center" width="1000px"/>
