@@ -120,9 +120,25 @@ public class AdminServiceImpl implements AdminService{
 	
 	//取件
 	//将此单据状态改为已取,且把此订单中所有衣物状态改为已取(调用)
-	public void selectOrderByOrderid(String Orderid){
-		orderMapper.updateOrderStatue(Orderid);      //修改单据状态
-		orderMapper.updateClothStatueByOid(Orderid);   //修改单据中所有衣物状态
+	public Order selectOrderByOrderid(String Orderid){
+		int flag = 0;
+		int number = 0;
+		Order order = new Order();
+		List<Cloth> clothes = orderMapper.returnAllClothInfo(Orderid);
+		for (Cloth clothnow : clothes){
+			if(clothnow.getStatue()==0){
+				number++;
+			}	
+		}
+		if(number == orderMapper.returnNum(Orderid)){
+			flag = 1;
+		}
+		if(flag == 1){
+			orderMapper.updateOrderStatue(Orderid);      //修改单据状态
+			orderMapper.updateClothStatueByOid(Orderid);   //修改单据中所有衣物状态
+		}
+		order = orderMapper.returnOrderInfo(Orderid);
+		return order;
 	}
 	
 	//通过输入挂衣号ID修改衣物状态，当即修改

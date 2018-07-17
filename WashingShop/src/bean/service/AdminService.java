@@ -17,7 +17,7 @@ public interface AdminService {
 			String Brand,String Flaw,String Add,double Price,double Discount,String Id);
 	public String isToday(String applicationoid);
 	public Order buildOrder(String Cid,List<Cloth> clothes,String applicationoid);
-	public void selectOrderByOrderid(String Orderid);
+	public Order selectOrderByOrderid(String Orderid);
 	
 	//通过挂衣号ID修改衣物状态，当即修改
 	public void MoodifyClothStatueByID(String ID);
