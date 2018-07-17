@@ -43,5 +43,8 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-webflux-5.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-webmvc-5.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-websocket-5.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/c3p0-0.9.5.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/c3p0-oracle-thin-extras-0.9.5.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mchange-commons-java-0.2.11.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
