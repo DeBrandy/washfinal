@@ -27,4 +27,10 @@ public interface OrderMapper
 	//根据订单状态修改所有衣物状态
 	@Update("update cloth set Statue=1 where Oid=#{Oid}")
 	void updateClothStatueByOid(String Oid);
+	//根据订单号查询衣物数量
+	@Select("select num from orders where Oid=#{Oid}")
+	int returnNum(String Oid);
+	//根据订单号查询所有订单信息
+	@Select("select * from orders where Oid=#{Oid}")
+	Order returnOrderInfo(String Oid);
 }
