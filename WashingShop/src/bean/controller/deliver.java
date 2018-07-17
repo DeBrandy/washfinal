@@ -14,6 +14,7 @@ import bean.service.AdminService;
 
 @Controller
 public class deliver {
+	
 	@Autowired
 	private AdminService service;
 	//取件
