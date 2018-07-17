@@ -16,15 +16,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Login {
 	
 
-	@Autowired
-	private operator ope;
-   /*
+
+/*	@Autowired
+	private operator ope;*/
+    
  	ApplicationContext ac= new ClassPathXmlApplicationContext("applicationContext.xml");
  	operator ope =(operator) ac.getBean("ope");	
- 	*/
+ 	
 
-	
-	//private operator ope;
+	@Autowired
+	private operator ope;
+  
+
 
 	@RequestMapping("/validLogin")
     public String login(@RequestParam("lname")String lname,@RequestParam("password")String password,Model model)

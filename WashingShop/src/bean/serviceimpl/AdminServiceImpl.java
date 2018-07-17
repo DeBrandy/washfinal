@@ -28,12 +28,10 @@ public class AdminServiceImpl implements AdminService{
 	//收件
 	//根据电话号码查询 姓名,余额,等级,未取件单号,总消费,地址
 	public Client selectInfoByNumber(String Cid){
-		//SqlSession session = FKSqlSessionFactory.getSqlSession();
-		//ClientMapper clientMapper = session.getMapper(CilentMapper.class);
+		
 		Client client = new Client();
 		client = clientMapper.selectClientById(Cid);
-		//session.commit();
-		//session.close();
+		
 		return client;
 	}
 	
