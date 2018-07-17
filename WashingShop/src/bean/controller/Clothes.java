@@ -71,12 +71,5 @@ public class Clothes {
 		return "clothes";
 	}
 
-	@RequestMapping(value="/test",method=RequestMethod.GET)
-	public String text(){
-		
-		return "clothes";
-	}
-	
-
 }
 	

@@ -32,6 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.js"></script>
   	<script type="text/javascript" src="./own.js"></script>
+  	<script type="text/javascript">
+  	function change(){
+  			alert(" 修改状态成功！");
+	};
+  	
+  	</script>
     <div id="top"></div>
 	<div id="nav">
 	<div class="btn-group">
@@ -42,7 +48,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
 	</div>
 	<div id="nav">
-	<!-- 在此编辑页面内容 -->
+	<form id="search_Clo" role="form" class="form-horizontal" >
+	<table>
+	<tr>
+	<td><label for="search_statue" class="control-label">衣物状态：</label></td>
+	<td><input type="text" class="form-horizontal" id="search_statue" name="Statue" ></td>
+	<td style="width:100px"><input type="button" class="btn btn-primary center-block" value="查询" onclick=""/></td>
+	
+    <td><label for="search_id" class="control-label">挂衣号：</label></td>
+	<td><input type="text" class="form-horizontal" id="search_id" name="Id" ></td>
+	<td style="width:100px"><input type="button" class="btn btn-primary center-block" value="查询" onclick=""/></td>
+	</tr>
+	</table>
+	</form>
+	<div style="width:1000px;overflow-x:auto">
+	<table class="table table-hover center-block" id="CloTable" style="width:1000px;text-align:center">
+        		<tr><td>挂衣号</td><td>订单号</td><td>服务类型</td><td>服务项目</td><td>材质</td><td>颜色</td><td>品牌</td><td>瑕疵</td><td>备注要求</td><td>状态</td><td>价格</td><td>折后价</td><td>操作</td></tr>
+        		<c:forEach items="${clothes}" var="cloth">
+       			<tr>
+        		<td>${cloth.Id} </td>
+        		<td>${cloth.Oid}</td>
+       		    <td>${cloth.Type}</td>
+       		    <td>${cloth.Clo}</td>
+       		    <td>${cloth.Mat}</td>
+       		    <td>${cloth.Color}</td>
+       		    <td>${cloth.Brand}</td>
+       		    <td>${cloth.Flaw}</td>
+			    <td>${cloth.Add}</td>
+       		    <td>${cloth.Statue}</td>
+       		    <td>${cloth.Price}</td>
+       		    <td>${cloth.Dprice}</td>
+			    <td><input type="button" value="修改状态" class="btn btn-primary center-block" onclick="change()"></td>
+      			</tr>
+     		 	</c:forEach>         
+    </table>
+	</div>
 	</div>
 	<div id="footer">
 	<hr color="#000" size="4px" align="center" width="1000px"/>
