@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Login {
 	
-	@Autowired
+	
 	private operator ope;
 
 	@RequestMapping("/validLogin")
