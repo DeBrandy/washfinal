@@ -13,12 +13,13 @@ import bean.daoclass.Order;
 import bean.service.AdminService;
 
 @Controller
+@RequestMapping(value="/deliver")
 public class deliver {
 	
 	@Autowired
 	private AdminService service;
 	//取件
-	@RequestMapping(value="#")
+	@RequestMapping(value="/do")
 	public String getClothes(Model model,@RequestParam("Oid")String Oid){
 		Order order = service.selectOrderByOrderid(Oid);
 		

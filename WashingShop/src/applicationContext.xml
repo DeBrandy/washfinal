@@ -18,6 +18,7 @@
 	
     <!--<context:annotation-config />
     --><mybatis:scan base-package="bean.mapper"/>
+<<<<<<< HEAD
     
      <bean name="ope" class="cn.itcast.a_hello.operator" >         
                <property name="Lname" value="不听话"></property>
@@ -25,6 +26,11 @@
        </bean>  
 	<context:component-scan base-package="bean.service" />
 	<context:property-override location="classpath:db.properties"/>
+=======
+	<context:component-scan base-package="bean.serviceimpl" />
+	<!--<context:component-scan base-package="bean.controller" />
+	--><context:property-override location="classpath:db.properties"/>
+>>>>>>> 0594a876c983b5fa11678f5bb439fbf8a83df6d9
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"/>

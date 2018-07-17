@@ -1,41 +1,55 @@
 package bean.controller;
+import java.util.List;
 
+import bean.daoclass.Client;
+import bean.daoclass.WashUse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
 import bean.service.WashUseService;;
 @Controller
-
-public class WashUse {
+@RequestMapping("/Tools")
+@SessionAttributes({"six","seven","client_2"})
+public class Tools {
 	@Autowired
 	public WashUseService wash;
 	
 	//显示所有商品
-	@RequestMapping(value="#")//表格的aciton是value的值
+	@RequestMapping("/findAll")//表格的aciton是value的值
 	public String findAll(Model model)
 	{
 		
 		
+		
+		
+		
 		model.addAttribute("six",wash.findAll());
+		
+		model.addAttribute("client_2",wash.findAll());
 		return "tools";
 		
 	}
 	
 	//按名称查找一个商品
-	@RequestMapping(value="#")
+	@SuppressWarnings("null")
+	@RequestMapping("/findOne")
 	public String findOne(@RequestParam("Uname")String Uname,Model model)
 	{
-		
-		model.addAttribute("two",wash.findOne(Uname));
+		List<WashUse> one = null;
+		model.addAttribute("seven",wash.findOne(Uname));
+		one.add(wash.findOne(Uname));
+		model.addAttribute("client_2",one);
 		return "tools";
 		
 	}
 	
 	//修改商品
-	@RequestMapping(value="#")
+	@RequestMapping("/update")
 	public String update(@RequestParam("Uname_1")String Uname_1,@RequestParam("Uname_2")String Uname_2,@RequestParam("num")int num)
 	{
 		wash.update(Uname_1, Uname_2, num);
@@ -44,7 +58,7 @@ public class WashUse {
 	}
 	
 	//插入一个新的商品
-	@RequestMapping(value="#")
+	@RequestMapping("/insert")
 	public String insert(@RequestParam("Uname")String Uname,@RequestParam("num")int num)
 	{
 		
@@ -53,7 +67,7 @@ public class WashUse {
 	}
 	
 	//删除一个用户
-	@RequestMapping(value="#")
+	@RequestMapping("/delete")
 	public String delete(@RequestParam("Uname")String Uname)
 	{
 		

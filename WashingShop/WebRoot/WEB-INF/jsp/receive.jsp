@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*,bean.daoclass.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -42,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
 	</div>
 	<div id="nav">
-	<form role="form" class="form-horizontal"  action="/receiveselect" method="post" id="from1">
+	<form role="form" class="form-horizontal"  action="/receive/select" method="post" id="from1">
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<table class="center-block">
 	<tr>
@@ -52,23 +53,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	<tr>
 	<td style="width:100px"><label for="Cname" class="control-label">姓名：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly value="$(requestScope.client.Cname)"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly value="${requestScope.client.Cname}"></td>
 	<td style="width:100px"><label for="Cba" class="control-label">卡内余额：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cba" readonly value="$(requestScope.client.Cba)"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cba" readonly value="${requestScope.client.Cba}"></td>
 	<td style="width:100px"><label for="Ctype" class="control-label">会员等级：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" readonly vlaue="$(requestScope.client.Ctype)"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" readonly vlaue="${requestScope.client.Ctype}"></td>
 	</tr>
 	<tr>
 	
 	<td><label for="Ccost" class="control-label">总消费：</label></td>
-	<td><input type="text" class="form-horizontal" id="Ccost" readonly value="$(requestScope.client.Ccost)" ></td>
+	<td><input type="text" class="form-horizontal" id="Ccost" readonly value="${requestScope.client.Ccost}" ></td>
 	<td><label for="Cad" class="control-label">地址：</label></td>
-	<td><input type="text" class="form-horizontal" id="Cad" readonly value="$(requestScope.client.Cad)"></td>
+	<td><input type="text" class="form-horizontal" id="Cad" readonly value="${requestScope.client.Cad}"></td>
 	</tr>
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
-	<form action="/receiveinfo" method="post" id="from2">
+	<form action="/receive/info" method="post" id="from2">
 	<table class="center-block">
 	<tr>
 	<td><h3><label>收件信息</label></h3></td>
@@ -154,10 +155,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
-	<form action="/receiveaccount" method="post" id="from3">
+	<form action="/receive/account" method="post" id="from3">
 	 <table border="2" class="table table-hover center-block" id="PTable" style="width:900px;text-align:center">
         		<tr><td style="width:300px">挂衣号</td><td style="width:300px">价格</td><td style="width:300px">折后价</td></tr>
-        		<c:forEach items="${clothes}" var="b">
+        		<c:forEach items="${requestScope.clothes}" var="b">
        			<tr>
         		<td>${b.Id} </td>
         		<td>${b.Price}</td>
@@ -174,11 +175,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="collapse" id="print">
        <table>
        <tr><td></td><td><h3>收  据</h3></td></tr>
-       <tr><td>手机号：</td><td><input type="text" class="form-horizontal" id="Cid" readonly vlaue="$(requestScope.client.Cid)"></td></tr>
-       <tr><td>单据号：</td><td><input type="text" class="form-horizontal" id="Oid" readonly vlaue="$(requestScope.client.Oid"></td></tr>
-       <tr><td>衣服数量：</td><td><input type="text" class="form-horizontal" id="Number" readonly vlaue="$(requestScope.client.Number)"></td></tr>
-       <tr><td>日期：</td><td><input type="text" class="form-horizontal" id="Time" readonly vlaue="$(requestScope.client.Time)"></td></tr>
-       <tr><td>总价：</td><td><input type="text" class="form-horizontal" id="Ccost" readonly vlaue="$(requestScope.client.Money)"></td></tr>
+       <tr><td>手机号：</td><td><input type="text" class="form-horizontal" id="Cid" readonly vlaue="${requestScope.client.Cid}"></td></tr>
+       <tr><td>单据号：</td><td><input type="text" class="form-horizontal" id="Oid" readonly vlaue="${requestScope.client.Oid}"></td></tr>
+       <tr><td>衣服数量：</td><td><input type="text" class="form-horizontal" id="Number" readonly vlaue="${requestScope.client.Number}"></td></tr>
+       <tr><td>日期：</td><td><input type="text" class="form-horizontal" id="Time" readonly vlaue="${requestScope.client.Time}"></td></tr>
+       <tr><td>总价：</td><td><input type="text" class="form-horizontal" id="Ccost" readonly vlaue="${requestScope.client.Money}"></td></tr>
        </table>       
   	</div>
 	</td>

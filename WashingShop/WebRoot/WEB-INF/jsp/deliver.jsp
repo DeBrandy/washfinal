@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="nav">
 	<div id="home">
 	<div id="block"></div>
-	<form role="form" class="form-horizontal"  action="" method="get" id="dfrom">
+	<form role="form" class="form-horizontal"  action="/deliver/do" method="post" id="dfrom">
 	<table class="center-block">
 	<tr>
 	<td><label for="Oid" class="control-label">请输入单据号：</label></td>
