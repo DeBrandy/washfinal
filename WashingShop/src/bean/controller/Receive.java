@@ -42,9 +42,12 @@ public class Receive {
 		Discount = 1;   //每次输入电话,将折扣设为1
 		Client client;
 		client = service.selectInfoByNumber(Cid);
+		
+		
 		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
 	    clothes.clear();    //每次输入电话时,清空衣物集合
+		
 		return "receive";
 	}
 	

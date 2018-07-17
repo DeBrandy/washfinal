@@ -17,14 +17,13 @@ public class Login {
 	
 
 
-/*	@Autowired
-	private operator ope;*/
-    
+
+/*    
  	ApplicationContext ac= new ClassPathXmlApplicationContext("applicationContext.xml");
  	operator ope =(operator) ac.getBean("ope");	
- 	
+ */	
 
-	@Autowired
+	//@Autowired
 	private operator ope;
   
 

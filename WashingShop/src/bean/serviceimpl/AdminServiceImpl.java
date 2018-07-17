@@ -32,6 +32,7 @@ public class AdminServiceImpl implements AdminService{
 		Client client = new Client();
 		client = clientMapper.selectClientById(Cid);
 		
+		
 		return client;
 	}
 	
