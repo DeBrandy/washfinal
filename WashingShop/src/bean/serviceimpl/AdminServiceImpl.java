@@ -144,5 +144,9 @@ public class AdminServiceImpl implements AdminService{
 		}		
 		return clothes ;			
 	}
-
+	public List<Cloth> showAllcloth()
+	{
+		clothes = clothMapper.returnClothInfo();
+		return clothes;
+	}
 }

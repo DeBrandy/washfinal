@@ -23,6 +23,7 @@ public interface AdminService {
 	public void MoodifyClothStatueByID(String ID);
 	//通过选择要查询的衣物的状态，显示当前状态的所有衣物
 	public List<Cloth> ShowclothBystatus(int Statue);
-	//添加衣物信息
+	//显示当前有的全部衣物，便于进行操作
+	public List<Cloth> showAllcloth();
 	
 }
