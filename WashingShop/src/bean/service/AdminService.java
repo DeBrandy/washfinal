@@ -8,6 +8,7 @@ import java.util.List;
 
 import bean.daoclass.Client;
 import bean.daoclass.Cloth;
+import bean.daoclass.Operator;
 import bean.daoclass.Order;
 import bean.mapper.*;
 public interface AdminService {
@@ -18,7 +19,7 @@ public interface AdminService {
 	public String isToday(String applicationoid);
 	public Order buildOrder(String Cid,List<Cloth> clothes,String applicationoid);
 	public Order selectOrderByOrderid(String Orderid);
-	
+	public  Operator equal();
 	//通过挂衣号ID修改衣物状态，当即修改
 	public void MoodifyClothStatueByID(String ID);
 	//通过选择要查询的衣物的状态，显示当前状态的所有衣物

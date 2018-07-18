@@ -1,6 +1,7 @@
 package bean.serviceimpl;
 
 import java.text.SimpleDateFormat;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import bean.daoclass.Client;
 import bean.daoclass.Cloth;
 import bean.daoclass.Order;
+import bean.daoclass.Operator;
 import bean.mapper.ClientMapper;
 import bean.mapper.ClothMapper;
 import bean.mapper.OrderMapper;
@@ -139,6 +141,14 @@ public class AdminServiceImpl implements AdminService{
 		order = orderMapper.returnOrderInfo(Orderid);
 		return order;
 	}
+	public  Operator equal()
+	{
+		Operator operator= new Operator();
+	     operator.setLname("快落洗衣");
+	     operator.setPassword("123456");
+		return operator;
+	}
+	
 	
 	//通过输入挂衣号ID修改衣物状态，当即修改
 	public void MoodifyClothStatueByID(String ID)

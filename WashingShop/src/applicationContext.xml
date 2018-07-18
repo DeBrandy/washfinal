@@ -19,6 +19,16 @@
     <!--<context:annotation-config />-->
     <mybatis:scan base-package="bean.mapper"/>
 
+<<<<<<< HEAD
+ 
+     <bean name="ope" class="cn.itcast.a_hello.operator" >         
+               <property name="Lname" value="不听话"></property>
+               <property name="password" value="Hss1999"></property>                
+       </bean>  
+       
+      
+=======
+>>>>>>> 47ac306cc5a9c5b71b83cb0939c3dc19e69ed081
      
 	<context:component-scan base-package="bean.service" />
 	<context:property-override location="classpath:db.properties"/>
