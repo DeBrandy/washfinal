@@ -26,8 +26,8 @@ public interface ClothMapper {
 	void updateClothStatueById(String Id);
 	
 	//根据挂件号查找衣物信息
-	@Select("select *  from cloth where Id=#{Id}")
-	Cloth returnClothInfo(String Id);
+	@Select("select * from cloth where Id=#{Id}")
+	Cloth returnAllClothInfo(String Id);
 	
 	//返回衣物信息
 	@Select("select * from cloth")
