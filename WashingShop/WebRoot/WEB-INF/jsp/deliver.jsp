@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="./own.js"></script>
   	<script type="text/javascript">
   	function getreturn(){
-  		var statue = ${order.Statue};
+  		var statue = ;
   		if(statue == 0){
   			alert(" 取件成功！");
   		}

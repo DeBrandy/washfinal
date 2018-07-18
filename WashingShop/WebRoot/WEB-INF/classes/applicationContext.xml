@@ -16,38 +16,16 @@
 	 http://mybatis.org/schema/mybatis-spring
 	 http://mybatis.org/schema/mybatis-spring.xsd">
 	
-<<<<<<< HEAD
-    <!--<context:annotation-config />
-    --><mybatis:scan base-package="bean.mapper"/>
-<<<<<<< HEAD
-    
-=======
     <!--<context:annotation-config />-->
     <mybatis:scan base-package="bean.mapper"/>
 
-<<<<<<< HEAD
-=======
-    <!--  
->>>>>>> d4d1c80fa715403b0b58c6916a1b368847fd78af
->>>>>>> cce4a0a53cc29effcf8fa2fb6e229fb0dcfce1b0
+ 
      <bean name="ope" class="cn.itcast.a_hello.operator" >         
                <property name="Lname" value="不听话"></property>
                <property name="password" value="Hss1999"></property>                
        </bean>  
-<<<<<<< HEAD
+       
       
-=======
-<<<<<<< HEAD
-	<context:component-scan base-package="bean.service" />
-	<context:property-override location="classpath:db.properties"/>
-=======
-	<context:component-scan base-package="bean.serviceimpl" />
-	<!--<context:component-scan base-package="bean.controller" />
-	--><context:property-override location="classpath:db.properties"/>
->>>>>>> 0594a876c983b5fa11678f5bb439fbf8a83df6d9
-=======
-     -->  
->>>>>>> cce4a0a53cc29effcf8fa2fb6e229fb0dcfce1b0
      
 	<context:component-scan base-package="bean.service" />
 	<context:property-override location="classpath:db.properties"/>
@@ -56,7 +34,6 @@
 	<!--<context:component-scan base-package="bean.controller" />
 	--><context:property-override location="classpath:db.properties"/>
 
->>>>>>> d4d1c80fa715403b0b58c6916a1b368847fd78af
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"/>

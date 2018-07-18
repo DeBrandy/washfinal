@@ -33,10 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.js"></script>
   	<script type="text/javascript" src="./own.js"></script>
   	<script type="text/javascript">
+  	/*  
   	function change(){
   			alert(" 修改状态成功！");
-	};
-  	
+	};*/
+  
   	</script>
     <div id="top"></div>
 	<div id="nav">
@@ -63,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</form>
 	<div style="width:1000px;overflow-x:auto">
 	<table class="table table-hover center-block" id="CloTable" style="width:1000px;text-align:center">
-        		<tr><td>挂衣号</td><td>订单号</td><td>服务类型</td><td>服务项目</td><td>材质</td><td>颜色</td><td>品牌</td><td>瑕疵</td><td>备注要求</td><td>状态</td><td>价格</td><td>折后价</td><td>操作</td></tr>
+        		<tr><td>挂衣号</td><td>订单号</td><td>服务类型</td><td>服务项目</td><td>材质</td><td>颜色</td><td>品牌</td><td>瑕疵</td><td>备注要求</td><td>状态</td><td>价格</td><td>折后价</td></tr>
         		<c:forEach items="${clothes}" var="cloth">
        			<tr>
         		<td>${cloth.Id} </td>
@@ -78,7 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		    <td>${cloth.Statue}</td>
        		    <td>${cloth.Price}</td>
        		    <td>${cloth.Dprice}</td>
-			    <td><input type="button" value="修改状态" class="btn btn-primary center-block" onclick="change()"></td>
+       		    
+			    <!--<td><input type="button" value="修改状态" class="btn btn-primary center-block" onclick="change()"></td>-->
       			</tr>
      		 	</c:forEach>         
     </table>
