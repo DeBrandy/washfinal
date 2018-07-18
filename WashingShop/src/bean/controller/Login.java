@@ -17,8 +17,24 @@ import bean.service.AdminService;
 @Controller
 public class Login {
 	
+<<<<<<< HEAD
 	@Autowired
 	private AdminService service;
+=======
+
+
+
+/*    
+ 	ApplicationContext ac= new ClassPathXmlApplicationContext("applicationContext.xml");
+ 	operator ope =(operator) ac.getBean("ope");	
+ */	
+
+	//@Autowired
+	private operator ope;
+  
+
+
+>>>>>>> 47ac306cc5a9c5b71b83cb0939c3dc19e69ed081
 	@RequestMapping("/validLogin")
     public String login(@RequestParam("lname")String lname,@RequestParam("password")String password,Model model,Operator ope)
     {

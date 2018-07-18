@@ -43,9 +43,12 @@ public class Receive {
 		Discount = 1;   //每次输入电话,将折扣设为1
 		Client client;
 		client = service.selectInfoByNumber(Cid);
+		
+		
 		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
 	    clothes.clear();    //每次输入电话时,清空衣物集合
+		
 		return "receive";
 	}
 	
@@ -76,8 +79,7 @@ public class Receive {
 	}
 	
 	
-	//这是一个测试类,试试能不能用浏览器打开,个人认为url是这样的,各位看看有没有错
-	//localhost:8080/WashingShop/test
+	//直接跳转
 	@RequestMapping(value="/test")
 	public String test(){
 		
