@@ -26,4 +26,9 @@ public class deliver {
 		model.addAttribute("Order", order);
 		return "deliver";
 	}
+	@RequestMapping(value="/test")
+	public String test(){
+		
+		return "deliver";
+	}
 }

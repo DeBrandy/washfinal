@@ -27,8 +27,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	 
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<!--<script type="text/javascript">     <!--点击按钮判定用户是否存在,存在则显示信息,不存在则提示查无此人-->
+		function show(){
+		if(!${requestScope.client})
+			document.getElementById("search").style.display="";
+		else{
+			document.getElementById("Cid").value = "查无此人";
+		}
+			//alert(document.getElementById("div").style.display)
+		}
+	</script>
+	--><!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.js"></script>
@@ -36,8 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="top"></div>
 	<div id="nav">
 	<div class="btn-group">
-    <button type="button" class="btn btn-default" style="width:200px">收件</button>
-    <button type="button" class="btn btn-default" style="width:201px">付件</button>
+    <a href="/receive/test"><button type="button" class="btn btn-default" style="width:200px">收件</button></a>
+    <a href="/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
     <button type="button" class="btn btn-default" style="width:201px">会员管理</button>
     <button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button>
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
@@ -49,8 +58,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 	<td><label for="Cid" class="control-label">查询用户：</label></td>
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid" name="Cid"></td>
-	<td><button id="search" type="submit" class="btn btn-primary">确  定</button></td>
+	<td><button id="search" type="submit" class="btn btn-primary" onClick="show()">确  定</button></td>
 	</tr>
+	<!--<div style="display:none">-->
 	<tr>
 	<td style="width:100px"><label for="Cname" class="control-label">姓名：</label></td>
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly value="${requestScope.client.Cname}"></td>
@@ -60,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" readonly vlaue="${requestScope.client.Ctype}"></td>
 	</tr>
 	<tr>
-	
+	<!--</div>-->
 	<td><label for="Ccost" class="control-label">总消费：</label></td>
 	<td><input type="text" class="form-horizontal" id="Ccost" readonly value="${requestScope.client.Ccost}" ></td>
 	<td><label for="Cad" class="control-label">地址：</label></td>
