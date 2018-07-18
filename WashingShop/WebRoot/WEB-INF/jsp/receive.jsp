@@ -27,6 +27,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+	$("#addition").click(function(){
+		$("#fresh").load(location.href+" #fresh>*","");
+	});
+	$("#search").click(function(){
+		var url = "请求地址";
+		var data = {type:1};
+		$.ajax({
+			type : "get",
+			async : false,  //同步请求
+			url : url,
+			data : data,
+			timeout:1000,
+			success:function(dates){
+				//alert(dates);
+				$("#find").html(dates);//要刷新的div
+			},
+			error: function() {
+               // alert("失败，请稍后再试！");
+            }
+		});
+	});
+  	</script>
 	<!--<script type="text/javascript">     
 		function show(){
 		if(!${requestScope.client})
@@ -58,9 +81,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 	<td><label for="Cid" class="control-label">查询用户：</label></td>
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid" name="Cid"></td>
+<<<<<<< HEAD
 	<td><button id="search" type="submit" class="btn btn-primary" >确  定</button></td>
+=======
+	<td><a id="search" type="submit" class="btn btn-primary" onClick="show()">确  定</a></td>
+>>>>>>> a5773d150fb36ef6463c055b25a54ab992860b60
 	</tr>
 	<!--<div style="display:none">-->
+	</table>
+	<div id="find">
+	<table class="center-block">
 	<tr>
 	<td style="width:100px"><label for="Cname" class="control-label">姓名：</label></td>
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly value="${requestScope.client.Cname}"></td>
@@ -159,13 +189,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</td>
 	<tr>
 	<td></td><td></td><td></td>
-	<td><button id="addition" type="submit" class="btn btn-primary">添  加</button></td>
+	<td><a id="addition" type="submit" class="btn btn-primary">添  加</a></td>
 	<td></td>
 	</tr>
 	</table>
 	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<form action="/WashingShop/receive/account" method="post" id="from3">
+	<div id="fresh">
 	 <table border="2" class="table table-hover center-block" id="PTable" style="width:900px;text-align:center">
         		<tr><td style="width:300px">挂衣号</td><td style="width:300px">价格</td><td style="width:300px">折后价</td></tr>
         		<c:forEach items="${requestScope.clothes}" var="b">
@@ -177,6 +208,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      		 	</c:forEach>
            
        </table>
+       </div>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<table class="center-block">
 	<tr>
