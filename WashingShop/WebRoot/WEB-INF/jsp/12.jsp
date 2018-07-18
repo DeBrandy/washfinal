@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 	<td><label for="Cid" class="control-label">查询用户：</label></td>
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid"></td>
-	<td><a id="search" type="submit" class="btn btn-primary">确  定</a></td>
+	<td><button id="search" type="submit" class="btn btn-primary">确  定</button></td>
 	</tr>
 	</table>
 	<table class="center-block">

@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</td>
 	<tr>
 	<td></td><td></td><td></td>
-	<td><a id="addition" type="submit" class="btn btn-primary">添  加</a></td>
+	<td><button id="addition" type="submit" class="btn btn-primary">添  加</button></td>
 	<td></td>
 	</tr>
 	</table>
