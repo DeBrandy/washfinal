@@ -18,7 +18,7 @@ public class deliver {
 	
 	@Autowired
 	private AdminService service;
-	//取件
+	//取件  
 	@RequestMapping(value="/do")
 	public String getClothes(Model model,@RequestParam("Oid")String Oid){
 		Order order = service.selectOrderByOrderid(Oid);
