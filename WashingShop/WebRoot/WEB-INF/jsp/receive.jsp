@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<!--<script type="text/javascript">     <!--点击按钮判定用户是否存在,存在则显示信息,不存在则提示查无此人-->
+	<!--<script type="text/javascript">     
 		function show(){
 		if(!${requestScope.client})
 			document.getElementById("search").style.display="";
@@ -45,8 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="top"></div>
 	<div id="nav">
 	<div class="btn-group">
-    <a href="/receive/test"><button type="button" class="btn btn-default" style="width:200px">收件</button></a>
-    <a href="/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
+    <a href="/WashingShop/receive/test"><button type="button" class="btn btn-default" style="width:200px">收件</button></a>
+    <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
     <button type="button" class="btn btn-default" style="width:201px">会员管理</button>
     <button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button>
     <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
