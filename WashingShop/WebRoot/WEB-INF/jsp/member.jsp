@@ -158,7 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="form-group">
                                 <label for="Ccost" class="col-sm-2 control-label">充值金额</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="Ccost" name="Ccost" class="form-control well"/>
+                                    <input type="text" id="amount" name="amount" class="form-control well"/>
                                 </div>
                             </div>
                         </form>
@@ -199,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="form-group">
                                 <label for="Ccost" class="col-sm-2 control-label">充值金额</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="Ccost" name="Ccost" class="form-control well"/>
+                                    <input type="text" id="amount" name="amount" class="form-control well"/>
                                 </div>
                             </div>
                         </form>
