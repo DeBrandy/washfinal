@@ -52,7 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="footer">
 	<hr color="#000" size="4px" align="center" width="1000px"/>
 	<br/>
-	<p>producer:</p>
+	<p>producer:8000116068 孙月棋 8000116076 张鑫雨 8000116086 黄诗诗 8000116097 钟明 8000116120 王一清 8000116127 张涵
+	</p>
 	</div>
   </body>
 </html>
