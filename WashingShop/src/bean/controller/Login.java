@@ -17,10 +17,10 @@ import bean.service.AdminService;
 @Controller
 public class Login {
 	
-<<<<<<< HEAD
+
 	@Autowired
 	private AdminService service;
-=======
+
 
 
 
@@ -30,11 +30,11 @@ public class Login {
  */	
 
 	//@Autowired
-	private operator ope;
+	private Operator ope;
   
 
 
->>>>>>> 47ac306cc5a9c5b71b83cb0939c3dc19e69ed081
+
 	@RequestMapping("/validLogin")
     public String login(@RequestParam("lname")String lname,@RequestParam("password")String password,Model model,Operator ope)
     {

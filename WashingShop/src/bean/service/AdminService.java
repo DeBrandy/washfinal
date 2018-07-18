@@ -15,9 +15,9 @@ public interface AdminService {
 	
 	public Client selectInfoByNumber(String Cid);
 	public Cloth buildCloth(String Type,String Clo,String Mat,String Color,
-			String Brand,String Flaw,String Add,double Price,double Discount,String Id);
+			String Brand,String Flaw,String Add,double Price,double Discount,String Id,String applicationoid,String Cid,int number);
 	public String isToday(String applicationoid);
-	public Order buildOrder(String Cid,List<Cloth> clothes,String applicationoid);
+	public Order buildOrder(String Cid,String applicationoid);
 	public Order selectOrderByOrderid(String Orderid);
 	public  Operator equal();
 	//通过挂衣号ID修改衣物状态，当即修改
