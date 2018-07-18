@@ -46,22 +46,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
      <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
+    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
-	<form id="search_Clo" role="form" class="form-horizontal" >
+	
+	<form id="search_Statue" role="form" class="form-horizontal"  action="/WashingShop/Clothes/showStatue" method="post" >
 	<table>
 	<tr>
 	<td><label for="search_statue" class="control-label">衣物状态：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_statue" name="Statue" ></td>
 	<td style="width:100px"><input type="button" class="btn btn-primary center-block" value="查询" onclick=""/></td>
+	</table>
+	</form>
 	
-    <td><label for="search_id" class="control-label">挂衣号：</label></td>
+	<form  id="search_ID" role="form" class="form-horizontal"  action="/WashingShop/Clothes/manage" method="post" >
+	<table>
+	<tr>
+    <td><label for="search_id" class="control-label">挂 衣 号：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_id" name="Id" ></td>
 	<td style="width:100px"><input type="button" class="btn btn-primary center-block" value="查询" onclick=""/></td>
 	</tr>
 	</table>
 	</form>
+	
+	
 	<div style="width:1000px;overflow-x:auto">
 	<table class="table table-hover center-block" id="CloTable" style="width:1000px;text-align:center">
         		<tr><td>挂衣号</td><td>订单号</td><td>服务类型</td><td>服务项目</td><td>材质</td><td>颜色</td><td>品牌</td><td>瑕疵</td><td>备注要求</td><td>状态</td><td>价格</td><td>折后价</td></tr>
@@ -89,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="footer">
 	<hr color="#000" size="4px" align="center" width="1000px"/>
 	<br/>
-	<p>producer:</p>
+	<p>producer:producer:8000116068 孙月棋 8000116076 张鑫雨 8000116086 黄诗诗 8000116097 钟明 8000116120 王一清 8000116127 张涵</p>
 	</div>
   </body>
 </html>

@@ -25,6 +25,5 @@ public interface AdminService {
 	//通过选择要查询的衣物的状态，显示当前状态的所有衣物
 	public List<Cloth> ShowclothBystatus(int Statue);
 	//显示当前有的全部衣物，便于进行操作
-	public List<Cloth> showAllcloth();
-	
+	public List<Cloth> showAllcloth();	
 }

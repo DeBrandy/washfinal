@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
        <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <button type="button" class="btn btn-default" style="width:201px">衣物管理</button>
+     <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
 	<form id="search_User" role="form" class="form-horizontal" >
@@ -279,7 +279,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="footer">
 	<hr color="#000" size="4px" align="center" width="1000px"/>
 	<br/>
-	<p>producer:</p>
+	<p>producer:8000116068 孙月棋 8000116076 张鑫雨 8000116086 黄诗诗 8000116097 钟明 8000116120 王一清 8000116127 张涵</p>
 	</div>
   </body>
 </html>

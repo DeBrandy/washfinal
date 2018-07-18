@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import bean.daoclass.Cloth;
 import bean.service.AdminService;
 
+@Controller
+@RequestMapping(value="/Clothes")
 public class Clothes {
 	
 	//private List<Cloth> clothes ;	
@@ -31,7 +33,7 @@ public class Clothes {
 	}
 	
 	//show衣物：操作员通过查询衣物的状态（0：已经洗好 /1：未洗好），将衣物信息显示出来。
-	@RequestMapping(value="/show")
+	@RequestMapping(value="/showStatue")
 	public String showClothes(Model model,@RequestParam("Statue")int Statue,List<Cloth> clothes)
 	{	
 		//int num,i;
@@ -68,6 +70,12 @@ public class Clothes {
 	public String manageCloth(Model model,@RequestParam("Id")String Id)
 	{
 		service.MoodifyClothStatueByID(Id);		
+		return "clothes";
+	}
+	//直接跳转
+	@RequestMapping(value="/test")
+	public String test(){
+		
 		return "clothes";
 	}
 

@@ -29,17 +29,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<h1 style="font-size: 60px">快落洗衣管理系统</h1>
 	</div>
   	<div id="login">
-	<form class="form-horizontal" role="form" action="/WashingShop/Login/validLogin" method="get" id="login">
+	<form class="form-horizontal" role="form" action="/WashingShop/Login/validLogin" method="post" id="login">
 	  <div class="form-group">
 	    <label for="username" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user" style="font-size: 20px"></span></label>
 	    <div class="col-sm-10">
-	      <input type="text" class="form-control" id="username" placeholder="用户名">
+	      <input type="text" class="form-control" name="lname" placeholder="用户名">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="password" class="col-sm-2 control-label"><span class="glyphicon glyphicon-asterisk" style="font-size: 20px"></span></label>
 	    <div class="col-sm-10">
-	      <input type="password" class="form-control" id="password" placeholder="密码">
+	      <input type="password" class="form-control" name="password" placeholder="密码">
 	    </div>
 	  </div>
 	  <div class="form-group">

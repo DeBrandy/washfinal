@@ -45,10 +45,7 @@ public class Receive {
 		Discount = 1;   //每次输入电话,将折扣设为1
 		number = 0;
 		cidnow = Cid;
-		Client client;
-		client = service.selectInfoByNumber(Cid);
-		
-		
+		 Client client = service.selectInfoByNumber(Cid);
 		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
 	    //clothes.clear();    //每次输入电话时,清空衣物集合
@@ -87,9 +84,7 @@ public class Receive {
 		Order order = service.buildOrder(cidnow,applicationoid);
 		model.addAttribute("order", order);
 		return "receive";
-	}
-	
-	
+	}	
 	//直接跳转
 	@RequestMapping(value="/test")
 	public String test(){
