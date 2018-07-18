@@ -81,12 +81,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 	<td><label for="Cid" class="control-label">查询用户：</label></td>
 	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid" name="Cid"></td>
-<<<<<<< HEAD
+
 	<td><button id="search" type="submit" class="btn btn-primary" >确  定</button></td>
-=======
-	<td><a id="search" type="submit" class="btn btn-primary" onClick="show()">确  定</a></td>
->>>>>>> a5773d150fb36ef6463c055b25a54ab992860b60
-	</tr>
+
+	<!--<td><a id="search" type="submit" class="btn btn-primary" onClick="show()">确  定</a></td>
+
+	--></tr>
 	<!--<div style="display:none">-->
 	</table>
 	<div id="find">

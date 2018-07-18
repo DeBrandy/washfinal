@@ -1,4 +1,5 @@
 package bean.controller;
+import java.util.ArrayList;
 import java.util.List;
 
 import bean.daoclass.Client;
@@ -36,11 +37,11 @@ public class Tools {
 	}
 	
 	//按名称查找一个商品
-	@SuppressWarnings("null")
+	
 	@RequestMapping("/findOne")
 	public String findOne(@RequestParam("Uname")String Uname,Model model)
 	{
-		List<WashUse> one = null;
+		List<WashUse> one = new ArrayList<WashUse>();
 		model.addAttribute("seven",wash.findOne(Uname));
 		one.add(wash.findOne(Uname));
 		model.addAttribute("client_2",one);

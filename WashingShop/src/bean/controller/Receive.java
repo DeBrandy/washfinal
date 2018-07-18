@@ -45,7 +45,8 @@ public class Receive {
 		Discount = 1;   //每次输入电话,将折扣设为1
 		number = 0;
 		cidnow = Cid;
-		 Client client = service.selectInfoByNumber(Cid);
+		Client client = new Client();
+		client = service.selectInfoByNumber(Cid);
 		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
 	    //clothes.clear();    //每次输入电话时,清空衣物集合
@@ -65,8 +66,8 @@ public class Receive {
 		date = new java.util.Date();
 		applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
 		applicationoid  = service.isToday(applicationoid);
-		
-		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id,
+		Cloth cloth = new Cloth();
+		cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id,
 				applicationoid,cidnow,number);   
 		
 		clothes.add(cloth);         //加入集合
@@ -81,7 +82,8 @@ public class Receive {
 		applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
 		applicationoid  = service.isToday(applicationoid);*/
 		//System.out.println(Oid);
-		Order order = service.buildOrder(cidnow,applicationoid);
+		Order order = new Order();
+		order = service.buildOrder(cidnow,applicationoid);
 		model.addAttribute("order", order);
 		return "receive";
 	}	

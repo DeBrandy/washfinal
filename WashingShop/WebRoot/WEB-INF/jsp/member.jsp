@@ -189,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="modal-body">
                         <!--  模态框内容，我在此处添加一个表单 -->
                         <label><h3>会员充值</h3></label>
-                        <form class="form-horizontal" role="form">
+                       
                             <div class="form-group">
                                 <label for="Cid" class="col-sm-2 control-label">手机号</label>
                                 <div class="col-sm-9">
@@ -202,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <input type="text" id="amount" name="amount" class="form-control well"/>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
 
                     <div class="modal-footer">

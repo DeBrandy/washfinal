@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="modal-body">
                         <!--  模态框内容，我在此处添加一个表单 -->
                         <label><h3>请添加商品</h3></label>
-                        <form class="form-horizontal" role="form">
+                       
                             <div class="form-group">
                                 <label for="Uname" class="col-sm-2 control-label">用品名</label>
                                 <div class="col-sm-9">
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <input type="text" id="num" name="num" class="form-control well"/>
                                 </div>
                             </div>
-                        </form>
+                       
                     </div>
 
                     <div class="modal-footer">
@@ -120,8 +120,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>
     
     
-    
-  <form method="post" action="/WashingShop/Tools/update" class="form-horizontal" role="form" id="myForm3" onsubmit="return ">
+     <form method="post" action="/WashingShop/Tools/update" class="form-horizontal" role="form" id="myForm3" onsubmit="return ">
+ 
         <div class="modal fade" id="DModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
             <div class="modal-dialog">
@@ -134,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="modal-body">
                         <!--  模态框内容，我在此处添加一个表单 -->
                         <label><h3>修改会员信息</h3></label>
-                        <form class="form-horizontal" role="form">
+                       
                                  
                                 <div class="col-sm-9">
                                     <input type="hidden" id="Cid_1" name="Cid_1" value="<%=request.getParameter("Cid_1")%>" class="form-control well"/>
@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
  
-                        </form>
+                  
                     </div>
 
                     <div class="modal-footer">

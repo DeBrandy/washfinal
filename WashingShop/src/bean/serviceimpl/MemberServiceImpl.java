@@ -118,7 +118,11 @@ public class MemberServiceImpl implements MemberService{
 	//充值
 	public  int  invest(String Cid,double amount)
 	{
-		Client one = client.selectClientById(Cid);
+		Client one = new Client();
+		one = client.selectClientById(Cid);
+		double amount_1= one.getCba();
+		amount_1 = amount_1+amount;
+		one.setCba(amount_1);
 		if(amount<500)
 		{}
 				
@@ -150,7 +154,7 @@ public class MemberServiceImpl implements MemberService{
 			
 		}
 
-		
+	
 		client.updateClientInfo(one);
 		return 0;
 	}
