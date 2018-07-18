@@ -56,7 +56,7 @@ public class AdminServiceImpl implements AdminService{
 	//确认是否是今天的第一条单据,并生成单据号
 	public String isToday(String applicationoid){
 		//获取
-		String Oid = null;
+		//String Oid = null;
 		int ooid = 0;
 		int year = orderMapper.returnTopData().getYear();
 		int month = orderMapper.returnTopData().getMonth();
