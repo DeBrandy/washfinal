@@ -73,6 +73,11 @@ public class Tools {
 		
 		wash.delete(Uname);
 		return "tools";
-	}	
+	}
+	@RequestMapping(value="/test")
+	public String test(){
+		
+		return "tools";
+	}
 	
 }
