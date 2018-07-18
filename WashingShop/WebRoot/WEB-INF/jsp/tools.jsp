@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 	<td><label for="search_Uname" class="control-label">用品名：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_Uname" name="Uname" ></td>
-	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" onclick="/Tools/findOne"/></td>
+	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" onclick="/WashingShop/Tools/findOne"/></td>
 	</tr>
 	</table>
 	</form>
@@ -70,8 +70,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        			<tr>
         		<td>${u.Cid} </td>
         		<td>${u.Cname}</td>
-			    <td><a href="/Tools/delete?Cid=${a.Cid}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
-			    <td><a href="tools.jsp?Cid=${a.Cid}"><input type="button" value="修改" class="btn btn-primary center-block" ></a></td>
+			    <td><a href="/WashingShop/Tools/delete?Cid=${a.Cid}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
+			    <td><a href="/WashingShop/Tools/test?Cid=${a.Cid}"><input type="button" value="修改" class="btn btn-primary center-block" ></a></td>
       			</tr>
       		
      		 	</c:forEach>
@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<button class="btn btn-primary" data-toggle="modal" data-target="#UModal">添加商品</button>
     <!--  定义模态框触发器，此处为按钮触发  -->
 
-    <form method="post" action="/Tools/insert" class="form-horizontal" role="form" id="myForm1" onsubmit="return ">
+    <form method="post" action="/WashingShop/Tools/insert" class="form-horizontal" role="form" id="myForm1" onsubmit="return ">
         <div class="modal fade" id="UModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
             <div class="modal-dialog">
@@ -121,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     
-  <form method="post" action="/Tools/update" class="form-horizontal" role="form" id="myForm3" onsubmit="return ">
+  <form method="post" action="/WashingShop/Tools/update" class="form-horizontal" role="form" id="myForm3" onsubmit="return ">
         <div class="modal fade" id="DModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
             <div class="modal-dialog">
