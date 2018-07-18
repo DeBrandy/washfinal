@@ -78,8 +78,7 @@ public class Receive {
 	}
 	
 	
-	//这是一个测试类,试试能不能用浏览器打开,个人认为url是这样的,各位看看有没有错
-	//localhost:8080/WashingShop/test
+	//直接跳转
 	@RequestMapping(value="/test")
 	public String test(){
 		
