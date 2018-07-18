@@ -25,6 +25,10 @@ public interface ClothMapper {
 	@Update("update cloth set Statue=0 where Id=#{Id}")
 	void updateClothStatueById(String Id);
 	
+	//根据挂件号查找衣物状态
+	@Select("select *  from cloth where Id=#{Id}")
+	Cloth returnClothInfo(String Id);
+	
 	//返回衣物信息
 	@Select("select * from cloth ")
 	public List<Cloth> returnClothInfo();	

@@ -2,6 +2,7 @@ package bean.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,9 +30,9 @@ public class Receive {
 	private AdminService service;
 	
 	
-	private List<Cloth> clothes ;  
-	java.util.Date date = new java.util.Date();
-	private String applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
+	//public List<Cloth> clothes;  
+	public java.util.Date date = null; //= new java.util.Date();
+	public String applicationoid = null;// = new SimpleDateFormat("yyyyMMDD").format(date);
 	private double Discount = 1;
 	
 	
@@ -46,7 +47,7 @@ public class Receive {
 		
 		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
-	    clothes.clear();    //每次输入电话时,清空衣物集合
+	    //clothes.clear();    //每次输入电话时,清空衣物集合
 		
 		return "receive";
 	}
@@ -59,7 +60,7 @@ public class Receive {
 			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add,
 			@RequestParam("Price")double Price,@RequestParam("Id")String Id){
 		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
-		
+		List<Cloth> clothes = new ArrayList<Cloth>();
 		Cloth cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id);   
 		
 		clothes.add(cloth);         //加入集合,但不写入数据库
@@ -70,10 +71,12 @@ public class Receive {
 	//创建订单   打印票据  手机号,单据号,衣服数量,日期
 	@RequestMapping(value="/account")
 	public String order(Model model,@RequestParam("Cid") String Cid){
+		date = new java.util.Date();
+		applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
 		applicationoid  = service.isToday(applicationoid);
 		//System.out.println(Oid);
-		Order order = service.buildOrder(Cid,clothes,applicationoid);
-		model.addAttribute("order", order);
+		//Order order = service.buildOrder(Cid,clothes,applicationoid);
+		//model.addAttribute("order", order);
 		return "receive";
 	}
 	

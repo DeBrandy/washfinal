@@ -151,15 +151,15 @@ public class MemberServiceImpl implements MemberService{
 		}
 
 		
-		
+		client.updateClientInfo(one);
 		return 0;
 	}
 	
 	//插入新用户
-	@SuppressWarnings("null")
+	
 	public int insert(String Cid, String Cname, String Csex,String Cad,double amount) {
 		
-		Client one = null ;
+		Client one = new Client() ;
 		one.setCid(Cid);
 		one.setCname(Cname);
 		one.setCsex(Csex);
@@ -194,6 +194,7 @@ public class MemberServiceImpl implements MemberService{
 			one.setDiscount(0.8);
 			
 		}
+		client.addClient(one);
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -50,7 +50,7 @@ public class AdminServiceImpl implements AdminService{
 		cloth.setPrice(Price);         
 		cloth.setDprice(Price*Discount);
 		cloth.setType(Type);
-	
+		clothMapper.addCloth(cloth);
 		return cloth;
 	}
 	//确认是否是今天的第一条单据,并生成单据号
@@ -58,16 +58,16 @@ public class AdminServiceImpl implements AdminService{
 		//获取
 		//String Oid = null;
 		int ooid = 0;
-		int year = orderMapper.returnTopData().getYear();
-		int month = orderMapper.returnTopData().getMonth();
-		int day = orderMapper.returnTopData().getDay();
-		String dateString = year + "" + month + "" + day + "";    //数据库中最大时间
+		
+		String dateString = orderMapper.returnTopData();    //数据库中最大时间
 		java.util.Date date = new java.util.Date();
 		//得到YYYYMMDD的格式
-		SimpleDateFormat sy1 = new SimpleDateFormat("yyyyMMDD");
+		SimpleDateFormat sy1 = new SimpleDateFormat("yyyy-MM-DD");
+		SimpleDateFormat sy2 = new SimpleDateFormat("yyyyMMDD");
 		String dateFormat = sy1.format(date);                  //当前时间
+		String dateFormat2 = sy2.format(date);                //当前时间的yyyymmdd格式
 		if(!dateFormat.equals(dateString)){   //如果当前时间和数据库中最大时间不同,applicationoid变为当前日期+000,
-			applicationoid = dateFormat;
+			applicationoid = dateFormat2;
 			ooid = Integer.parseInt(applicationoid)*1000;
 		}else{
 			ooid = Integer.parseInt(applicationoid) + 1;   //如果当前时间和数据库中最大时间相同,则给订单号+1

@@ -43,7 +43,7 @@ public class WashUseServiceImpl implements WashUseService {
 
 	public int insert(String Uname, int Unum) {
 		// TODO Auto-generated method stub
-		WashUse one =null;
+		WashUse one = new WashUse();
 		one.setUname(Uname);
 		one.setUnum(Unum);
 		wash.addWashUse(one);
