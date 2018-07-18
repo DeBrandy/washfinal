@@ -105,6 +105,10 @@ public class Member {
 		model.addAttribute("client_1",client.sortByCcost());
 		return "member";
 	}	
-	
+	@RequestMapping(value="/test")
+	public String test(){
+		
+		return "member";
+	}
 	
 }
