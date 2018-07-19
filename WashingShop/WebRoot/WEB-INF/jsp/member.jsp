@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"   %>
+<%@ page language="java" import="java.util.*,bean.daoclass.*" pageEncoding="utf-8"   %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
@@ -48,6 +48,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	List<Client> client_1 =session.getAttribute("five");
 	  	session.setAttribute("client_1",client_1);
 	};*/
+	function set_6()
+	{	
+		request.setAttribute("cid_1","223");
+
+	}
   	</script>
   </head>
   
@@ -71,42 +76,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
        <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-     <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+     <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
-	<form id="search_User" role="form" class="form-horizontal" >
+	<form id="search_User" role="form" class="form-horizontal" action="/WashingShop/Member/findOne">
 	<table>
 	<tr>
 	<td><label for="search_id" class="control-label">手机号：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_id" name="Cid" ></td>
-	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" onclick="/WashingShop/Member/findOne"/></td>
+	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" /></td>
 	<td style="width:250px"></td>
-	<td style="width:150px"><input type="button" class="btn btn-primary" value="按手机号排序" onclick="/WashingShop/Member/sortByCid"/></td>
-	<td style="width:150px"><input type="button" class="btn btn-primary" value="按总消费排序" onclick="/WashingShop/Member/sortByCcost"/></td>
-	<td><input type="button" class="btn btn-primary" value="按余额排序" onclick="/WashingShop/Member/sortByCba"/></td>
+	<td style="width:150px"><a href="/WashingShop/Member/findAll"><input type="button" class="btn btn-primary" value="查看所有用户" /></a></td>
+	<td style="width:150px"><a href="/WashingShop/Member/sortByCid"><input type="button" class="btn btn-primary" value="按手机号排序" /></a></td>
+	<td style="width:150px"><a href="/WashingShop/Member/sortByCcost"><input type="button" class="btn btn-primary" value="按总消费排序" /></a></td>
+	<td><a href="/WashingShop/Member/sortByCba"><input type="button" class="btn btn-primary" value="按余额排序" /></a></td>
 	</tr>
 	</table>
 	</form>
     
+
 	<table class="table table-hover center-block" id="MTable" style="width:1000px;text-align:center">
-        		<tr><td>手机号</td><td>姓名</td><td>性别</td><td>地址</td><td>会员类型</td><td>卡内余额</td><td>总消费</td><td>折扣</td><td>操作</td><td>操作</td><td><a href="member.jsp">刷新</a></td></tr>
-        		<c:forEach items="${sessionScope.client_1}" var="a">
+        		<tr><td>手机号</td><td>姓名</td><td>性别</td><td>地址</td><td>会员类型</td><td>卡内余额</td><td>总消费</td><td>折扣</td><td>操作</td><td>操作</td></tr>
+        		
+        		<c:forEach items="${requestScope.client_1}" var="zzzz" >
        			<tr>
-        		<td>${a.Cid} </td>
-        		<td>${a.Cname}</td>
-       		    <td>${a.Csex}</td>
-       		    <td>${a.Cad}</td>
-       		    <td>${a.Ctype}</td>
-       		    <td>${a.Cba}</td>
-       		    <td>${a.Ccost}</td>
-       		    <td>${a.Discount}</td>
-			    <td><a href="/WashingShop/Member/delete?Cid=${a.Cid}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
-			    <td><a href=/WashingShop/Member/test?Cid_1=${a.Cid}"><input type="button" value="修改" class="btn btn-primary center-block" data-toggle="modal" data-target="#DModal"></a></td>
+ 
+        		<td>${zzzz.cid}</td>
+        		<td>${zzzz.cname}</td>
+       		    <td>${zzzz.csex}</td>
+       		    <td>${zzzz.cad}</td>
+       		    <td>${zzzz.ctype}</td>
+       		    <td>${zzzz.cba}</td>
+       		    <td>${zzzz.ccost}</td>
+       		    <td>${zzzz.discount}</td>
+			    <td><a href="/WashingShop/Member/delete?Cid=${zzzz.cid}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
+			    <td><input type="button" value="修改" class="btn btn-primary center-block" data-toggle="modal" data-target="#DModal" onclick="set_6()"></td>
       			</tr>
       		
      		 	</c:forEach>
            
-     </table>
+    </table>
 	
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<button class="btn btn-primary" data-toggle="modal" data-target="#AModal">添加会员</button>
@@ -228,16 +237,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="modal-body">
                         <!--  模态框内容，我在此处添加一个表单 -->
                         <label><h3>修改会员信息</h3></label>
-                        <form class="form-horizontal" role="form">
-                                 
+                        
+                             <div class="form-group">    
                                 <div class="col-sm-9">
-                                    <input type="hidden" id="Cid_1" name="Cid_1" value="<%=request.getParameter("Cid_1")%>" class="form-control well"/>
+                                    <input type="hidden" id="Cid_1" name="Cid_1" value="${requestScope.cid_1}" class="form-control well"/>
                                 </div>
-                            </div>                    
+                             </div>
+                                            
                             <div class="form-group">
                                 <label for="Cid" class="col-sm-2 control-label">手机号</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="Cid" name="Cid" class="form-control well"/>
+                                    <input type="text" id="Cid_2" name="Cid_2" class="form-control well"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -249,10 +259,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="form-group">
                                 <label for="Csex" class="col-sm-2 control-label">性别</label>
                                 <div class="col-sm-4">
-                                <input name="Csex" type="radio" value="" checked="checked"/>男
+                                <input name="Csex" type="radio" value="男" checked="checked"/>男
                                 </div>
                                 <div class="col-sm-4">
-                                <input name="Csex" type="radio" value="" />女 
+                                <input name="Csex" type="radio" value="女" />女 
                                 <!--  <input type="text" id="Csex" name="Csex" class="form-control well"/>-->
                                 </div>
                             </div>
@@ -262,7 +272,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <input type="text" id="Cad" name="Cad" class="form-control well"/>
                                 </div>
                             </div>
-                        </form>
+                       
                     </div>
 
                     <div class="modal-footer">

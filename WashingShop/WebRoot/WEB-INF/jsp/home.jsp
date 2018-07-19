@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
     <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+    <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
 	<div id="home">

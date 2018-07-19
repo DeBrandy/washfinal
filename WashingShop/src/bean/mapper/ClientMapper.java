@@ -20,7 +20,7 @@ public interface ClientMapper {
 	List<Client> selectAllClient();
 	
 	//插入一个会员
-	@Insert("insert into info values(#{Cid},#{Cname},#{Csex},#{Cad},#{Cba},#{Ccost},#{Ctype},#{Discount})")
+	@Insert("insert into info values(#{cid},#{cname},#{csex},#{cad},#{cba},#{ccost},#{ctype},#{discount})")
 	void addClient(Client client);
 	
 	//修改会员信息   按手机号查找，可以修改任意信息----用动态

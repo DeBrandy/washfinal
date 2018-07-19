@@ -11,18 +11,20 @@ public class CProvider {
 			{
 				UPDATE("info");
 				if(client.getCname() != null)
-					SET("Cname = #{Cname}");
+					SET("Cname = #{cname}");
 				if(client.getCsex() != null)
-					SET("Csex = #{Csex}");
+					SET("Csex = #{csex}");
 				if(client.getCad() != null)
-					SET("Cad = #{Cad}");
+					SET("Cad = #{cad}");
 				if(client.getCba() != 0)
-					SET("Cba = #{Cba}");
+					SET("Cba = #{cba}");
 				if(client.getCcost() != 0)
-					SET("Ccost = #{Ccost}");
+					SET("Ccost = #{ccost}");
 				if(client.getCtype() != null)
-					SET("Ctype = #{Ctype}");
-				WHERE("Cid = #{Cid}");
+					SET("Ctype = #{ctype}");
+				if(client.getDiscount() != 0)
+					SET("Discount = #{discount}");
+				WHERE("Cid = #{cid}");
 			}
 		}.toString();
 	}

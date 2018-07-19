@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
      <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-     <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+     <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
 	<form role="form" class="form-horizontal"  action="/WashingShop/receive/select" method="post" id="from1">
@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table class="center-block">
 	<tr>
 	<td><label for="Cid" class="control-label">查询用户：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid" name="Cid"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cid" name="Cid"/></td>
 
 	<td><button id="search" type="submit" class="btn btn-primary" >确  定</button></td>
 
@@ -93,18 +93,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table class="center-block">
 	<tr>
 	<td style="width:100px"><label for="Cname" class="control-label">姓名：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" readonly value="${requestScope.client.Cname}"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cname" name="Cname" readonly value="${requestScope.client.cname}"/></td>
 	<td style="width:100px"><label for="Cba" class="control-label">卡内余额：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Cba" readonly value="${requestScope.client.Cba}"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Cba" name="Cba" readonly value="${requestScope.client.cba}"></td>
 	<td style="width:100px"><label for="Ctype" class="control-label">会员等级：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" readonly vlaue="${requestScope.client.Ctype}"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Ctype" name="Ctype" readonly value="${requestScope.client.ctype}"></td>
 	</tr>
 	<tr>
 	<!--</div>-->
 	<td><label for="Ccost" class="control-label">总消费：</label></td>
-	<td><input type="text" class="form-horizontal" id="Ccost" readonly value="${requestScope.client.Ccost}" ></td>
+	<td><input type="text" class="form-horizontal" id="Ccost" name="Ccost" readonly value="${requestScope.client.ccost}" ></td>
 	<td><label for="Cad" class="control-label">地址：</label></td>
-	<td><input type="text" class="form-horizontal" id="Cad" readonly value="${requestScope.client.Cad}"></td>
+	<td><input type="text" class="form-horizontal" id="Cad" name="Cad" readonly value="${requestScope.client.cad}"></td>
 	</tr>
 	</table>
 	</form>
@@ -189,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</td>
 	<tr>
 	<td></td><td></td><td></td>
-	<td><a id="addition" type="submit" class="btn btn-primary">添  加</a></td>
+	<td><button id="addition" type="submit" class="btn btn-primary">添  加</button></td>
 	<td></td>
 	</tr>
 	</table>
@@ -201,9 +201,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr><td style="width:300px">挂衣号</td><td style="width:300px">价格</td><td style="width:300px">折后价</td></tr>
         		<c:forEach items="${requestScope.clothes}" var="b">
        			<tr>
-        		<td>${b.Id} </td>
-        		<td>${b.Price}</td>
-       		    <td>${b.DPrice}</td>
+        		<td>${b.id} </td>
+        		<td>${b.price}</td>
+       		    <td>${b.dprice}</td>
       			</tr>
      		 	</c:forEach>
            
@@ -213,20 +213,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table class="center-block">
 	<tr>
 	
-	<td><button type="button" class="btn btn-primary center-block" data-toggle="collapse" data-target="#print" data-backdrop="static">结账并打印票据</button>
-	<div class="collapse" id="print">
-       <table>
-       <tr><td></td><td><h3>收  据</h3></td></tr>
-       <tr><td>手机号：</td><td><input type="text" class="form-horizontal" id="Cid" readonly vlaue="${requestScope.client.Cid}"></td></tr>
-       <tr><td>单据号：</td><td><input type="text" class="form-horizontal" id="Oid" readonly vlaue="${requestScope.client.Oid}"></td></tr>
-       <tr><td>衣服数量：</td><td><input type="text" class="form-horizontal" id="Number" readonly vlaue="${requestScope.client.Number}"></td></tr>
-       <tr><td>日期：</td><td><input type="text" class="form-horizontal" id="Time" readonly vlaue="${requestScope.client.Time}"></td></tr>
-       <tr><td>总价：</td><td><input type="text" class="form-horizontal" id="Ccost" readonly vlaue="${requestScope.client.Money}"></td></tr>
-       </table>       
+	<td><button type="submit" class="btn btn-primary center-block" data-toggle="collapse" data-target="#print" data-backdrop="static">结账并打印票据</button>
+	<!--<div class="collapse" id="print">
+            
   	</div>
-	</td>
+	--></td>
 	</tr>
 	</table>
+	 <table class="center-block">
+       <tr><td></td><td><h3>收  据</h3></td></tr>
+       <tr><td>手机号：</td><td><input type="text" class="form-horizontal" id="Cid" name = "Cid" readonly value="${requestScope.order.cid}"></td></tr>
+       <tr><td>单据号：</td><td><input type="text" class="form-horizontal" id="Oid" name = "Oid" readonly value="${requestScope.order.oid}"></td></tr>
+       <tr><td>衣服数量：</td><td><input type="text" class="form-horizontal" id="Number" name = "Number" readonly value="${requestScope.order.number}"></td></tr>
+       <tr><td>日期：</td><td><input type="text" class="form-horizontal" id="Time" name = "Time" readonly value="${requestScope.order.time}"></td></tr>
+       <tr><td>总价：</td><td><input type="text" class="form-horizontal" id="Ccost" name = "Ccost" readonly value="${requestScope.order.money}"></td></tr>
+       </table> 
 	</form>
 	</div>
 	<div id="footer">

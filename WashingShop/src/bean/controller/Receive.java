@@ -31,10 +31,10 @@ public class Receive {
 	private AdminService service;
 	
 	
-	//public List<Cloth> clothes;  
+	public List<Cloth> clothes = new ArrayList<Cloth>();  
 	public String cidnow;
-	public java.util.Date date = null; //= new java.util.Date();
-	public String applicationoid = null;// = new SimpleDateFormat("yyyyMMDD").format(date);
+	public java.util.Date date = new java.util.Date();
+	public String applicationoid = new SimpleDateFormat("yyyyMMdd").format(date) + "000";
 	private double Discount = 1;
 	private int number = 0;
 	
@@ -42,48 +42,47 @@ public class Receive {
 	//返回到receive.jsp,填写信息
 	@RequestMapping(value="/select")
 	public String selectById(@RequestParam("Cid")String Cid,Model model){
+		System.out.print(Cid);
 		Discount = 1;   //每次输入电话,将折扣设为1
 		number = 0;
 		cidnow = Cid;
 		Client client = new Client();
 		client = service.selectInfoByNumber(Cid);
+		
 		Discount = client.getDiscount();    //设置当前折扣
 		model.addAttribute("client", client);
-	    //clothes.clear();    //每次输入电话时,清空衣物集合
-		
+	    clothes.clear();    //每次输入电话时,清空衣物集合
+		System.out.println(applicationoid+"++++"+cidnow+"本次生成的单据号");
 		return "receive";
 	}
 	
 	//创建一条衣物信息,并加入clothes集合
 	//清空文本框内容(在jsp中实现)
 	@RequestMapping(value="/info")
-	public String cloth(Model model,@RequestParam("Type") String Type,
+	public String cloth(@RequestParam("Type") String Type,
 			@RequestParam("Clo")String Clo,@RequestParam("Mat")String Mat,@RequestParam("Color")String Color,
 			@RequestParam("Brand")String Brand,@RequestParam("Flaw")String Flaw,@RequestParam("Add")String Add,
-			@RequestParam("Price")double Price,@RequestParam("Id")String Id){
-		//Oid,Id,Type,Clo,Mat,Color,Brand,Flaw,Add
-		List<Cloth> clothes = new ArrayList<Cloth>();
-		date = new java.util.Date();
-		applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
-		applicationoid  = service.isToday(applicationoid);
-		Cloth cloth = new Cloth();
-		cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id,
-				applicationoid,cidnow,number);   
+			@RequestParam("Price")double Price,@RequestParam("Id")String Id,Model model){
 		
-		clothes.add(cloth);         //加入集合
+		/*System.out.println("dfgdafgdsfg");
+		System.out.println(Type);
+		System.out.println(Clo);*/
+		
+		Cloth cloth = new Cloth();
+		cloth = service.buildCloth(Type, Clo, Mat, Color, Brand, Flaw, Add,Price,Discount,Id);   
+		number++;   //衣物数量+1
+		clothes.add(cloth);         //加入集合,不加入数据库
 		model.addAttribute("clothes", clothes);
 		return "receive";
 	}
 	
 	// 打印票据  手机号,单据号,衣服数量,日期
 	@RequestMapping(value="/account")
-	public String order(Model model,@RequestParam("Cid") String Cid){
-		/*date = new java.util.Date();
-		applicationoid = new SimpleDateFormat("yyyyMMDD").format(date);
-		applicationoid  = service.isToday(applicationoid);*/
-		//System.out.println(Oid);
+	public String order(Model model){
+		applicationoid  = service.isToday(applicationoid);
+		System.out.println(applicationoid+"当前单据号");
 		Order order = new Order();
-		order = service.buildOrder(cidnow,applicationoid);
+		order = service.buildOrder(cidnow,applicationoid,number,clothes);
 		model.addAttribute("order", order);
 		return "receive";
 	}	

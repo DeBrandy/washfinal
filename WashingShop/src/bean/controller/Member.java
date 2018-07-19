@@ -5,12 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import bean.daoclass.Client;
 import bean.service.MemberService;
 @Controller
-@SessionAttributes({"one","two","three","four","five","client_1"})
+//<%=request.getParameter("Cid_1")%>
 @RequestMapping("/Member")
 public class Member {
 	@Autowired
@@ -29,12 +31,12 @@ public class Member {
 	}
 	
 	//按手机号查找一个用户
-	@SuppressWarnings("null")
+
 	@RequestMapping("/findOne")
 	public String findOne(@RequestParam("Cid")String Cid,Model model)
 	{
 	  	
-		List<Client> one = null;
+		List<Client> one = new ArrayList<Client>();
 		model.addAttribute("two",client.findOne(Cid));
 		one.add(client.findOne(Cid));
 		model.addAttribute("client_1",one);
@@ -84,7 +86,7 @@ public class Member {
 	{
 		
 		model.addAttribute("three",client.sortByCid());
-		model.addAttribute("client_1",client.findAll());
+		model.addAttribute("client_1",client.sortByCid());
 		return "member";
 	}
 	//按照余额排序
@@ -104,6 +106,7 @@ public class Member {
 		model.addAttribute("five",client.sortByCcost());
 		model.addAttribute("client_1",client.sortByCcost());
 		return "member";
+		
 	}	
 	@RequestMapping(value="/test")
 	public String test(){

@@ -59,7 +59,7 @@ public class MemberServiceImpl implements MemberService{
 			public int compare(Client o1, Client o2) {
 				 long one = Long.parseLong(o1.getCid());
 				 long two = Long.parseLong(o2.getCid());
-				 if(one< two){
+				 if(one> two){
 	                    return 1;
 	                }
 	                if(one ==two){
@@ -80,7 +80,7 @@ public class MemberServiceImpl implements MemberService{
 			 
 			public int compare(Client o1, Client o2) {
 
-				 if(o1.getCba()> o2.getCba()){
+				 if(o1.getCba()< o2.getCba()){
 	                    return 1;
 	                }
 	                if(o1.getCba()==o2.getCba()){
@@ -102,7 +102,7 @@ public class MemberServiceImpl implements MemberService{
 		Collections.sort(one, new Comparator<Client>() {
 				public int compare(Client o1, Client o2) {
 
-					 if(o1.getCcost()> o2.getCcost()){
+					 if(o1.getCcost()< o2.getCcost()){
 		                    return 1;
 		                }
 		                if(o1.getCcost()==o2.getCcost()){
@@ -124,9 +124,12 @@ public class MemberServiceImpl implements MemberService{
 		amount_1 = amount_1+amount;
 		one.setCba(amount_1);
 		if(amount<500)
-		{}
+		{
+			
+			
+		}
 				
-		else if(amount<1000 && one.getDiscount()>0.95)
+		else if(amount<1000 && one.getDiscount()==1.0)
 		{
 			one.setCtype("白银");
 			one.setDiscount(0.95);

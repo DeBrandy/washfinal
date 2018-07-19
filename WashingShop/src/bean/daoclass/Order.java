@@ -3,46 +3,44 @@ package bean.daoclass;
 import java.util.Date;
 
 public class Order {
-	private String Oid,Cid,Time;//订单号，手机号,日期
-	private int Number;//数量
-	private int Statue;
-	private double Money;
-	
-	public double getMoney() {
-		return Money;
-	}
-	public void setMoney(double money) {
-		Money = money;
-	}
-	public Order(){}
+	private String oid,cid,time;//订单号，手机号,日期
+	private int number;//数量
+	private int statue;
+	private double money;
 	public String getOid() {
-		return Oid;
+		return oid;
 	}
 	public void setOid(String oid) {
-		Oid = oid;
+		this.oid = oid;
 	}
 	public String getCid() {
-		return Cid;
+		return cid;
 	}
 	public void setCid(String cid) {
-		Cid = cid;
-	}
-	public int getNumber() {
-		return Number;
-	}
-	public void setNumber(int number) {
-		this.Number = number;
+		this.cid = cid;
 	}
 	public String getTime() {
-		return Time;
+		return time;
 	}
 	public void setTime(String time) {
-		Time = time;
+		this.time = time;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
 	}
 	public int getStatue() {
-		return Statue;
+		return statue;
 	}
 	public void setStatue(int statue) {
-		Statue = statue;
+		this.statue = statue;
+	}
+	public double getMoney() {
+		return money;
+	}
+	public void setMoney(double money) {
+		this.money = money;
 	}
 }

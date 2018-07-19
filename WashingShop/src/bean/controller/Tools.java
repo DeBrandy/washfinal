@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import bean.service.WashUseService;;
 @Controller
 @RequestMapping("/Tools")
-@SessionAttributes({"six","seven","client_2"})
+
 public class Tools {
 	@Autowired
 	public WashUseService wash;
@@ -69,10 +69,10 @@ public class Tools {
 	
 	//删除一个用户
 	@RequestMapping("/delete")
-	public String delete(@RequestParam("Uname")String Uname)
+	public String delete(@RequestParam("uname")String uname)
 	{
 		
-		wash.delete(Uname);
+		wash.delete(uname);
 		return "tools";
 	}
 	@RequestMapping(value="/test")

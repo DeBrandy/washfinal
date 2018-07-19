@@ -10,7 +10,7 @@ import bean.daoclass.Cloth;
 public interface ClothMapper {
 	
 	//添加衣物信息
-	@Insert("insert into cloth values(#{Id},#{Oid},#{Type},#{Clo},#{Mat},#{Color},#{Brand},#{Flaw},#{Add},#{Statue},#{Price},#{Dprice})")
+	@Insert("insert into cloth values(#{id},#{oid},#{type},#{clo},#{mat},#{color},#{brand},#{flaw},#{add},#{statue},#{price},#{dprice})")
 	public void addCloth(Cloth cloth);
 	
 	//根据衣物状态0（已洗未取）返回衣物信息
@@ -27,7 +27,7 @@ public interface ClothMapper {
 	
 	//根据挂件号查找衣物信息
 	@Select("select * from cloth where Id=#{Id}")
-	Cloth returnAllClothInfo(String Id);
+	List<Cloth> returnAllClothInfo(String Id);
 	
 	//返回衣物信息
 	@Select("select * from cloth")

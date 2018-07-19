@@ -52,32 +52,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
       <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+    <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
-	<form id="search_Use" role="form" class="form-horizontal" >
+	<form id="search_Use" role="form" class="form-horizontal" action="/WashingShop/Tools/findOne">
 	<table>
 	<tr>
 	<td><label for="search_Uname" class="control-label">用品名：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_Uname" name="Uname" ></td>
-	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" onclick="/WashingShop/Tools/findOne"/></td>
+	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询"/></td>
 	</tr>
 	</table>
 	</form>
+	<form id="findall" action="/WashingShop/Tools/findAll">
+	<button type="submit" class="btn btn-primary">查看所有的用品</button>
+	
 	<table class="table table-hover center-block" id="UTable" style="width:1000px;text-align:center">
         		<tr><td style="width:350px">用品名</td><td style="width:350px">数量</td><td>操作</td><td>操作</td></tr>
-        		<c:forEach items="${sessionScope.client_2}" var="u">
+        		<c:forEach items="${requestScope.client_2}" var="u">
        			<tr>
-        		<td>${u.Cid} </td>
-        		<td>${u.Cname}</td>
-			    <td><a href="/WashingShop/Tools/delete?Cid=${a.Cid}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
-			    <td><a href="/WashingShop/Tools/test?Cid=${a.Cid}"><input type="button" value="修改" class="btn btn-primary center-block" ></a></td>
+        		<td>${u.uname} </td>
+        		<td>${u.unum}</td>
+			    <td><a href="/WashingShop/Tools/delete?uname=${u.uname}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
+			    <td><input type="button" value="修改" class="btn btn-primary center-block" ></td>
       			</tr>
       		
      		 	</c:forEach>
            
      </table>
-	
+	</form>
 	<hr color="#CCC" size="4px" align="center" width="1000px"/>
 	<button class="btn btn-primary" data-toggle="modal" data-target="#UModal">添加商品</button>
     <!--  定义模态框触发器，此处为按钮触发  -->

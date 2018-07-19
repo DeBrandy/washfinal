@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -46,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
      <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+    <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
 	
@@ -55,7 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 	<td><label for="search_statue" class="control-label">衣物状态：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_statue" name="Statue" ></td>
-	<td style="width:100px"><input type="button" class="btn btn-primary center-block" value="查询" onclick=""/></td>
+	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" /></td>
+
 	</table>
 	</form>
 	
@@ -64,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
     <td><label for="search_id" class="control-label">挂 衣 号：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_id" name="Id" ></td>
-	<td style="width:100px"><input type="button" class="btn btn-primary center-block" value="查询" onclick=""/></td>
+	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="修改状态" /></td>
 	</tr>
 	</table>
 	</form>
@@ -73,20 +75,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div style="width:1000px;overflow-x:auto">
 	<table class="table table-hover center-block" id="CloTable" style="width:1000px;text-align:center">
         		<tr><td>挂衣号</td><td>订单号</td><td>服务类型</td><td>服务项目</td><td>材质</td><td>颜色</td><td>品牌</td><td>瑕疵</td><td>备注要求</td><td>状态</td><td>价格</td><td>折后价</td></tr>
-        		<c:forEach items="${clothes}" var="cloth">
-       			<tr>
-        		<td>${cloth.Id} </td>
-        		<td>${cloth.Oid}</td>
-       		    <td>${cloth.Type}</td>
-       		    <td>${cloth.Clo}</td>
-       		    <td>${cloth.Mat}</td>
-       		    <td>${cloth.Color}</td>
-       		    <td>${cloth.Brand}</td>
-       		    <td>${cloth.Flaw}</td>
-			    <td>${cloth.Add}</td>
-       		    <td>${cloth.Statue}</td>
-       		    <td>${cloth.Price}</td>
-       		    <td>${cloth.Dprice}</td>
+        		<c:forEach items="${requestScope.cloth}" var="cloth">
+       			<tr>       			
+        		<td>${cloth.id} </td>
+        		<td>${cloth.oid}</td>
+       		    <td>${cloth.type}</td>
+       		    <td>${cloth.clo}</td>
+       		    <td>${cloth.mat}</td>
+       		    <td>${cloth.color}</td>
+       		    <td>${cloth.brand}</td>
+       		    <td>${cloth.flaw}</td>
+			    <td>${cloth.add}</td>
+       		    <td>${cloth.statue}</td>
+       		    <td>${cloth.price}</td>
+       		    <td>${cloth.dprice}</td>
        		    
 			    <!--<td><input type="button" value="修改状态" class="btn btn-primary center-block" onclick="change()"></td>-->
       			</tr>

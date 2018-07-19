@@ -1,19 +1,19 @@
 package bean.daoclass;
 
 public class WashUse {
-	private String Uname;
-	private int Unum;
+	private String uname;
+	private int unum;
 	public WashUse(){}
 	public String getUname() {
-		return Uname;
+		return uname;
 	}
 	public void setUname(String uname) {
-		Uname = uname;
+		this.uname = uname;
 	}
 	public int getUnum() {
-		return Unum;
+		return unum;
 	}
 	public void setUnum(int unum) {
-		Unum = unum;
+		this.unum = unum;
 	}
 }

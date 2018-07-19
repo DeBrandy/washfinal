@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
       <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-     <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+     <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
 	<div id="home">
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table class="center-block">
 	<tr>
 	<td><label for="Oid" class="control-label">请输入单据号：</label></td>
-	<td style="width:200px"><input type="text" class="form-horizontal" id="Oid"></td>
+	<td style="width:200px"><input type="text" class="form-horizontal" id="Oid" name = "Oid"></td>
 	<td><button type="submit" class="btn btn-primary" onclick="getreturn()">确定</button></td>
 	</tr>
 	</table>

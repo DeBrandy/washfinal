@@ -16,8 +16,12 @@ public interface OrderMapper
 	@Select("select Max(Time) from orders")
 	String returnTopData();
 	
+	//返回查询到的最大的单据号
+	@Select("select Max(Oid) from orders")
+	String returnTopOid();
+	
 	//添加订单
-	@Insert("insert into orders values(#{Oid},#{Cid},#{Number},#{Time},#{Statue},#{Money})")
+	@Insert("insert into orders values(#{oid},#{cid},#{number},#{time},#{statue},#{money})")
 	void addOrders(Order order);
 	
 	//根据订单号查询所有衣物信息

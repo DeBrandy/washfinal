@@ -15,8 +15,8 @@ import bean.service.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-@Service
 
+@Service
 public class WashUseServiceImpl implements WashUseService {
 
 	@Autowired
