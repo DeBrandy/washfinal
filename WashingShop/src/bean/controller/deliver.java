@@ -23,7 +23,7 @@ public class deliver {
 	public String getClothes(Model model,@RequestParam("Oid")String Oid){
 		Order order = service.selectOrderByOrderid(Oid);
 		
-		model.addAttribute("Order", order);
+		model.addAttribute("order", order);
 		return "deliver";
 	}
 	@RequestMapping(value="/test")

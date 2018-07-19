@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import bean.daoclass.Client;
 import bean.daoclass.Cloth;
 import bean.service.AdminService;
 
@@ -17,8 +18,9 @@ import bean.service.AdminService;
 @RequestMapping(value="/Clothes")
 public class Clothes {
 	
-	private List<Cloth> clothes ;	
-	
+	private List<Cloth> clothes ;
+//	private List<Cloth> ccloth ;	
+	//private Cloth clo;
 	@Autowired
 	private AdminService service;
     
@@ -66,10 +68,26 @@ public class Clothes {
 	
 	//管理衣物：将已经洗好的衣服状态改为已洗好
 	@RequestMapping(value="/manage")
-	public String manageCloth(Model model,@RequestParam("Id")String Id)
+	public String manageCloth(Model model,@RequestParam("id")String id)
 	{
-		service.MoodifyClothStatueByID(Id);	
+		List<Cloth> ccloth = new ArrayList<Cloth>();
+		Cloth clo = new Cloth();
+		clo=service.MoodifyClothStatueByID(id);	//得到返回的衣物对象实例		
+		model.addAttribute("clo",clo);//将查询出的衣物实例存入数据模型中
+		ccloth.add(clo);//将查询出的衣物实例存入一个list中,便于jsp界面统一显示(保持格式一致)
+		model.addAttribute("cloth",ccloth);
 		return "clothes";
+		/*
+		 * 
+	  	
+		List<Client> one = new ArrayList<Client>();
+		model.addAttribute("two",client.findOne(Cid));
+		one.add(client.findOne(Cid));
+		model.addAttribute("client_1",one);
+		return "member";
+		
+		 * 
+		 * */
 	}
 	
 	//直接跳转,用于测试

@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
      <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
     <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <a href="/WashingShop/Clothes/Show"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
 	</div>
 	<div id="nav">
 	
@@ -57,7 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<td><label for="search_statue" class="control-label">衣物状态：</label></td>
 	<td><input type="text" class="form-horizontal" id="search_statue" name="Statue" ></td>
 	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="查询" /></td>
-
+	
+	<td style="width:100px"><a href="/WashingShop/Clothes/Show"><input type="button" class="btn btn-primary" value="显示所有衣物" /></a></td>
 	</table>
 	</form>
 	
@@ -65,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table>
 	<tr>
     <td><label for="search_id" class="control-label">挂 衣 号：</label></td>
-	<td><input type="text" class="form-horizontal" id="search_id" name="Id" ></td>
+	<td><input type="text" class="form-horizontal" id="search_id" name="id" ></td>
 	<td style="width:100px"><input type="submit" class="btn btn-primary center-block" value="修改状态" /></td>
 	</tr>
 	</table>
@@ -90,9 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		    <td>${cloth.price}</td>
        		    <td>${cloth.dprice}</td>
        		    
-			    <!--<td><input type="button" value="修改状态" class="btn btn-primary center-block" onclick="change()"></td>-->
-      			</tr>
-     		 	</c:forEach>         
+			    
+     		 	</c:forEach>        
     </table>
 	</div>
 	</div>

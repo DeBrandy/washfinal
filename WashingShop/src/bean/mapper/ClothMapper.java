@@ -27,7 +27,7 @@ public interface ClothMapper {
 	
 	//根据挂件号查找衣物信息
 	@Select("select * from cloth where Id=#{Id}")
-	List<Cloth> returnAllClothInfo(String Id);
+	Cloth returnAllClothInfo(String Id);
 	
 	//返回衣物信息
 	@Select("select * from cloth")

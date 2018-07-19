@@ -20,8 +20,8 @@ public interface AdminService {
 	public Order buildOrder(String Cid,String applicationoid,int number,List<Cloth> clothes);
 	public Order selectOrderByOrderid(String Orderid);
 	public  Operator equal();
-	//通过挂衣号ID修改衣物状态，当即修改
-	public List<Cloth> MoodifyClothStatueByID(String ID);
+	//通过挂衣号ID修改衣物状态，当即修改并显示信息
+	public Cloth MoodifyClothStatueByID(String ID);
 	//通过选择要查询的衣物的状态，显示当前状态的所有衣物
 	public List<Cloth> ShowclothBystatus(int Statue);
 	//显示当前有的全部衣物，便于进行操作

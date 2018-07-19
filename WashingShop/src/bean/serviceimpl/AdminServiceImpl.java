@@ -1,6 +1,7 @@
 package bean.serviceimpl;
 
 import java.math.BigInteger;
+
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
+import bean.controller.Clothes;
 import bean.daoclass.Client;
 import bean.daoclass.Cloth;
 import bean.daoclass.Order;
@@ -34,7 +36,8 @@ public class AdminServiceImpl implements AdminService{
 	@Autowired
 	public ClientMapper clientMapper;
 
-	private List<Cloth> clothes = new ArrayList<Cloth>();  
+	private List<Cloth> clothes = new ArrayList<Cloth>();
+	private Cloth cloth;
 	//收件
 	//根据电话号码查询 姓名,余额,等级,未取件单号,总消费,地址
 	public Client selectInfoByNumber(String Cid){
@@ -55,7 +58,7 @@ public class AdminServiceImpl implements AdminService{
 		cloth.setPrice(Price);         
 		cloth.setDprice(Price*Discount);
 		cloth.setType(Type);
-		cloth.setStatue(0);
+		cloth.setStatue(-1);
 				
 		return cloth;
 	}
@@ -176,11 +179,11 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	//通过输入挂衣号ID修改衣物状态，当即修改
-	public List<Cloth> MoodifyClothStatueByID(String ID)
+	public Cloth MoodifyClothStatueByID(String ID)
 	{
 		clothMapper.updateClothStatueById(ID);
-		clothes=clothMapper.returnAllClothInfo(ID);
-		return clothes;
+		cloth=clothMapper.returnAllClothInfo(ID);
+		return cloth;
 	}
 	
 	//通过选择要查询的衣物的状态，显示当前状态的所有衣物
@@ -190,7 +193,7 @@ public class AdminServiceImpl implements AdminService{
 		{
 			clothes =clothMapper.returnClothInfoByStatue_0();		
 		}    
-		if(Statue == 1)
+		if(Statue == -1)
 		{
 			clothes =clothMapper.returnClothInfoByStatue_1();			
 		}		
