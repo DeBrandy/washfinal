@@ -158,6 +158,7 @@ public class AdminServiceImpl implements AdminService{
 			if(clothnow.getStatue()==0){
 				number++;
 			}	
+			
 		}
 		if(number == orderMapper.returnNum(Orderid)){
 			flag = 1;

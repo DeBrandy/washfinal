@@ -45,14 +45,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.js"></script>
   	<script type="text/javascript" src="./own.js"></script>
-    <div id="top"></div>
+
 	<div id="nav">
-	<div class="btn-group">
-    <a href="/WashingShop/receive/test"><button type="button" class="btn btn-default" style="width:200px">收件</button></a>
-    <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:201px">付件</button></a>
-      <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:201px">会员管理</button></a>
-    <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:201px">洗衣用品管理</button></a>
-    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:201px">衣物管理</button></a>
+	
+	    <a href="/WashingShop/receive/test"><button type="button" class="btn btn-default" style="width:195px">收件</button></a>
+	    <a href="/WashingShop/deliver/test"><button type="button" class="btn btn-default" style="width:195px">付件</button></a>
+	    <a href="/WashingShop/Member/test"><button type="button" class="btn btn-default" style="width:195px">会员管理</button></a>
+	    <a href="/WashingShop/Tools/test"><button type="button" class="btn btn-default" style="width:195px">洗衣用品管理</button></a>
+	    <a href="/WashingShop/Clothes/test"><button type="button" class="btn btn-default" style="width:195px">衣物管理</button></a>
+	
 	</div>
 	<div id="nav">
 	<form id="search_Use" role="form" class="form-horizontal" action="/WashingShop/Tools/findOne">
@@ -65,23 +66,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form>
 	<form id="findall" action="/WashingShop/Tools/findAll">
-	<button type="submit" class="btn btn-primary">查看所有的用品</button>
+	<button type="submit" class="btn btn-primary ">查看所有的用品</button>
 	
-	<table class="table table-hover center-block" id="UTable" style="width:1000px;text-align:center">
+	<table class="table table-hover " id="UTable" style="width:1000px;text-align:center">
         		<tr><td style="width:350px">用品名</td><td style="width:350px">数量</td><td>操作</td><td>操作</td></tr>
         		<c:forEach items="${requestScope.client_2}" var="u">
        			<tr>
         		<td>${u.uname} </td>
         		<td>${u.unum}</td>
 			    <td><a href="/WashingShop/Tools/delete?uname=${u.uname}"><input type="button" value="删除" class="btn btn-primary center-block"></a></td>
-			    <td><input type="button" value="修改" class="btn btn-primary center-block" ></td>
+			    <td><input type="button" value="修改" class="btn btn-primary center-block" data-toggle="modal" data-target="#DModal" ></td>
       			</tr>
       		
      		 	</c:forEach>
            
      </table>
 	</form>
-	<hr color="#CCC" size="4px" align="center" width="1000px"/>
+	<hr color="#CCC" size="4px"  width="1000px"/>
 	<button class="btn btn-primary" data-toggle="modal" data-target="#UModal">添加商品</button>
     <!--  定义模态框触发器，此处为按钮触发  -->
 
@@ -137,16 +138,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="modal-body">
                         <!--  模态框内容，我在此处添加一个表单 -->
                         <label><h3>修改会员信息</h3></label>
-                       
+  							<div class="form-group">
+                                <label for="Cid" class="col-sm-2 control-label">用品名</label>                     
                                  
                                 <div class="col-sm-9">
-                                    <input type="hidden" id="Cid_1" name="Cid_1" value="<%=request.getParameter("Cid_1")%>" class="form-control well"/>
+                                    <input type="text" id="Uname_1" name="Uname_1" class="form-control well"/>
                                 </div>
                             </div>                    
                             <div class="form-group">
-                                <label for="Cid" class="col-sm-2 control-label">用品名</label>
+                                <label for="Cid" class="col-sm-2 control-label">新用品名</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="Uname" name="Uname" class="form-control well"/>
+                                    <input type="text" id="Uname_2" name="Uname_2" class="form-control well"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -155,8 +157,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <input type="text" id="num" name="num" class="form-control well"/>
                                 </div>
                             </div>
- 
-                  
                     </div>
 
                     <div class="modal-footer">
@@ -171,9 +171,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>  
 	</div>
 	<div id="footer">
-	<hr color="#000" size="4px" align="center" width="1000px"/>
+	<hr color="#000" size="4px" align="left" width="1000px"/>
 	<br/>
-	<p>producer:8000116068 孙月棋 8000116076 张鑫雨 8000116086 黄诗诗 8000116097 钟明 8000116120 王一清 8000116127 张涵</p>
+	<p>producer:8000116068 孙月棋 8000116076 张鑫雨 8000116086 黄诗诗 8000116120 王一清 8000116127 张涵</p>
 	</div>
   </body>
 </html>

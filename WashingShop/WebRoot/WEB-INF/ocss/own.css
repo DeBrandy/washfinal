@@ -14,10 +14,12 @@
 		background-image:url(../images/top.jpg);
 		}
 	#nav{
+		text-align:center;
 		width:1000px; 
 		border-top-color:#444; 
 		border-top-style:solid; 
 		border-top-width:2px;
+		position:relative;
 		}
 	#home{
 		width:1000px;
@@ -35,6 +37,6 @@
 		clear:both; 
 		text-align:center; 
 		font-family:"Courier New", Courier, monospace; 
-		color:#000
+		color:#000;
 		}
 	

@@ -108,6 +108,7 @@ public class Member {
 		return "member";
 		
 	}	
+
 	@RequestMapping(value="/test")
 	public String test(){
 		

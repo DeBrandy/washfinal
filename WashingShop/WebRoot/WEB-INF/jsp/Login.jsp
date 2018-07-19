@@ -24,30 +24,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+
 	<div id="block"></div>
 	<div class="text-center">
 	<h1 style="font-size: 60px">快落洗衣管理系统</h1>
 	</div>
-  	<div id="login">
+  	
 	<form class="form-horizontal" role="form" action="/WashingShop/Login/validLogin" method="post" id="login">
 	  <div class="form-group">
-	    <label for="username" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user" style="font-size: 20px"></span></label>
-	    <div class="col-sm-10">
-	      <input type="text" class="form-control" name="lname" placeholder="用户名">
-	    </div>
+	    <label for="username" class="col-sm-5 control-label"><span class="glyphicon glyphicon-user" style="font-size: 20px"></span></label>
+	    
+	      <input type="text" class="form-control" name="lname" placeholder="用户名"  style="width:250px;">
+	    
 	  </div>
 	  <div class="form-group">
-	    <label for="password" class="col-sm-2 control-label"><span class="glyphicon glyphicon-asterisk" style="font-size: 20px"></span></label>
-	    <div class="col-sm-10">
-	      <input type="password" class="form-control" name="password" placeholder="密码">
-	    </div>
+	    <label for="password" class="col-sm-5 control-label"><span class="glyphicon glyphicon-asterisk" style="font-size: 20px"></span></label>
+	    
+	      <input type="password" class="form-control" name="password" placeholder="密码"  style="width:250px;">
+	   
 	  </div>
 	  <div class="form-group">
-	    <div class="col-sm-10">
-	      <button type="submit" style="width:280px;" class="btn btn-primary">登 录</button>
+	    <div class="text-center">
+	      <button type="submit" style="width:200px;" class="btn btn-primary">登 录</button>
 	    </div>
 	  </div>
 	</form>
-	</div>
+	
+
   </body>
 </html>

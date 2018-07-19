@@ -20,10 +20,10 @@ public class deliver {
 	private AdminService service;
 	//取件  
 	@RequestMapping(value="/do")
-	public String getClothes(Model model,@RequestParam("Oid")String Oid){
+	public String getClothes(@RequestParam("Oid")String Oid){
 		Order order = service.selectOrderByOrderid(Oid);
 		
-		model.addAttribute("order", order);
+		//model.addAttribute("order", order);
 		return "deliver";
 	}
 	@RequestMapping(value="/test")
