@@ -122,18 +122,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div> <!-- /.modal -->
     </form>
     
-    <form method="post" action="/WashingShop/Tools/insert" class="form-horizontal" role="form" id="myForm3" onsubmit="return ">
-        <div class="modal fade" id="UModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    
+     <form method="post" action="/WashingShop/Tools/update" class="form-horizontal" role="form" id="myForm3" onsubmit="return ">
+ 
+        <div class="modal fade" id="DModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
             <div class="modal-dialog">
                 <!--  显示模态框对话框模型（若不写下一个div则没有颜色）  -->
                 <div class="modal-content">
                     <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
-					<div class="modal-body">
+
+                    
+
+                    <div class="modal-body">
                         <!--  模态框内容，我在此处添加一个表单 -->
                         <label><h3>修改会员信息</h3></label>
                        
-                            <div class="form-group">     
+                                 
                                 <div class="col-sm-9">
                                     <input type="hidden" id="Cid_1" name="Cid_1" value="<%=request.getParameter("Cid_1")%>" class="form-control well"/>
                                 </div>
@@ -150,7 +155,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <input type="text" id="num" name="num" class="form-control well"/>
                                 </div>
                             </div>
-                       
+ 
+                  
                     </div>
 
                     <div class="modal-footer">
@@ -162,8 +168,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div><!-- /.modal-content -->
             </div>
         </div> <!-- /.modal -->
-    </form>
-    
+    </form>  
 	</div>
 	<div id="footer">
 	<hr color="#000" size="4px" align="center" width="1000px"/>

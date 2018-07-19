@@ -31,7 +31,7 @@ public class Clothes {
 		return "clothes";
 	}
 	
-	//show衣物：操作员通过查询衣物的状态（0：已经洗好 /1：未洗好），将衣物信息显示出来。
+	//show衣物 :操作员通过查询衣物的状态（0：已经洗好 /1：未洗好），将衣物信息显示出来。
 	@RequestMapping(value="/showStatue")
 	public String showClothes(Model model,@RequestParam("Statue")int Statue)
 	{	
